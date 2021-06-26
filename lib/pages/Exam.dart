@@ -37,7 +37,7 @@ class ExamState extends State<ExamStateful> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         leading: Icon(
-          Icons.arrow_back_ios,
+          Icons.arrow_back,
           color: Colors.orange,
         ),
         actions: [
