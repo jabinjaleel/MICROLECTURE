@@ -19,6 +19,7 @@ class DisplayTextfield extends StatelessWidget {
 
               borderRadius: BorderRadius.all(Radius.circular(20))),
           prefixIcon: Icon(i1,color: Colors.black,),
+
           labelText: label,
 
 

@@ -2,6 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mbls/pages/loginPage.dart';
 import 'package:search_widget/search_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -30,6 +31,11 @@ class HomePageStateful extends StatefulWidget {
 
 class HomePageState extends State<HomePageStateful> {
   List<Color> clr = [Colors.white, Colors.blue];
+  void login(context)
+  {
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginPage()));
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +76,8 @@ class HomePageState extends State<HomePageStateful> {
                       width: 50,
                       height: 50,
                       child: IconButton(
-                        icon: Icon(Icons.menu),
-                        onPressed: () => {},
+                        icon: Icon(Icons.logout),
+                        onPressed: () => {login(context)},
                       ),
                     )
                   ]),

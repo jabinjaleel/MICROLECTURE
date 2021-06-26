@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:mbls/pages/homePage.dart';
+import 'package:mbls/pages/loginPage.dart';
 import 'package:mbls/pages/profile.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(LoginPage());
 }
 
 class MyApp extends StatelessWidget {

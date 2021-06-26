@@ -55,6 +55,8 @@ flutter:
   assets:
     - assets/hindu.png
     - assets/anime.webm
+    - assets/facebook.jpg
+    - assets/google.jpg
 
 
   # To add assets to your application, add an assets section, like this:
