@@ -4,6 +4,7 @@ import 'package:mbls/pages/homePage.dart';
 import 'package:mbls/pages/profile.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
+import 'package:mbls/pages/userregistration.dart';
 
 class LoginPage extends StatelessWidget {
   // This widget is the root of your application.
@@ -271,7 +272,9 @@ class LoginPageState extends State<LoginPageStateful> {
                 style: TextStyle(color: Colors.white),
               ),
               TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>UserRegistration()));
+                  },
                   child: Text(
                     "Sign Up",
                     style: TextStyle(
