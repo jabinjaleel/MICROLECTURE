@@ -31,188 +31,312 @@ class ExamDetailStateful extends StatefulWidget {
 class ExamDetailState extends State<ExamDetailStateful> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        backgroundColor: Colors.grey.withOpacity(.1),
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          leading: Icon(
-            Icons.arrow_back_ios,
-            color: Colors.orange,
-          ),
-          title: Text(""),
-          actions: [
-            Icon(
-              Icons.menu_outlined,
-              color: Colors.orange,
-            )
-          ],
-        ),
-        body: Container(
-          padding: EdgeInsets.only(
-            top: 20,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                margin: EdgeInsets.only(left: 20, top: 5),
-                child: Text(
-                  "Select Exam,",
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Column(children: [
-              Container(
-                  margin: EdgeInsets.only(left: 18),
-                  height: 250,
-                  width: 380,
-                  color: Colors.white,
-                  child: Column(
+    return DefaultTabController(
+        length: 3,
+        child: Scaffold(
+            backgroundColor: Colors.grey.withOpacity(.1),
+            appBar: AppBar(
+                title: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Center(
+                      Text(
+                        "Physics Online",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "Test",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold),
+                      )
+                    ]),
+                backgroundColor: Colors.white,
+                bottom: TabBar(
+                  isScrollable: true,
+                  indicatorColor: Colors.purple,
+                  tabs: [
+                    Tab(
                         child: Text(
-                          "Chapter",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
-                        ),
-                      ),
-                      SizedBox(height: 10,),
-                      ListTile(
-                        leading: Icon(Icons.drag_indicator_rounded),
-                        title: Text("Practical Units",),
-                        trailing: Container(
-                          height: 35,
-                          width: 80,
-                         decoration: BoxDecoration( color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: MaterialButton(
-                            child: Text(
-                              "Start",
-                              style: TextStyle(color: Colors.white),
+                      "Chapter",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15),
+                    )),
+                    Tab(
+                        child: Text("Module",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15))),
+                    Tab(
+                        child: Text("Final Exam",
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15)))
+                  ],
+                )),
+            body: TabBarView(children: [
+              Container(
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(top: 50),
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      height: 130,
+                      width: 350,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6.0,
+                              offset: Offset(0, 2),
                             ),
+                          ],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
+                          )),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(children: [
+                            Text("25 QUESTION"),
+                            SizedBox(width: 190,),
+                            Container(
+                              width: 50,
+                              height: 25,
+                              color: Colors.lightBlueAccent,
+                              child: Center(child: Text("NEW",style: TextStyle(color: Colors.white),)),
+                            )
+                          ]),
+                          SizedBox(
+                            height: 15,
                           ),
-                        ),
-                      ),
-                      Divider(
-                        thickness: 2,
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.drag_indicator_rounded),
-                        title: Text("Physics Quantities",),
-                        trailing: Container(
-                          height: 35,
-                          width: 80,
-                          decoration: BoxDecoration( color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: MaterialButton(
-                            child: Text(
-                              "Start",
-                              style: TextStyle(color: Colors.white),
+                          Text(
+                            "Practical Units",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(children: [
+                            Icon(
+                              Icons.lock_clock,
+                              color: Colors.purple,
                             ),
-                          ),
-                        ),
-                      ),
-                      Divider(
-                        thickness: 2,
-                      ),
-                      ListTile(
-                        leading: Icon(Icons.drag_indicator_rounded),
-                        title: Text("Findamental and derived quantities",),
-                        trailing: Container(
-                          height: 35,
-                          width: 80,
-                          decoration: BoxDecoration( color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                          child: MaterialButton(
-                            child: Text(
-                              "Start",
-                              style: TextStyle(color: Colors.white),
+                            Text("10 minutes allowed",
+                                style: TextStyle(
+                                    color: Colors.purple,
+                                    fontWeight: FontWeight.bold)),
+                            SizedBox(
+                              width: 90,
                             ),
-                          ),
-                        ),
-                      ),
+                            OutlineButton(
+                                borderSide: BorderSide(
+                                  color: Colors.purpleAccent,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.play_arrow,
+                                      color: Colors.purple,
+                                    ),
+                                    Text(
+                                      "Start",
+                                      style: TextStyle(
+                                          color: Colors.purple,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {},
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(26.0),
+                                ))
+                          ]),
 
 
-                      // Divider(
-                      //   thickness: 2,
-                      // )
-                    ],
-                  ))]),
-              SizedBox(height: 10,),
-        Container(
-            margin: EdgeInsets.only(left: 18),
-            height: 250,
-            width: 380,
-            color: Colors.white,
-            child: Column(
-              children: [
-                Center(
-                  child: Text(
-                    "Module",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold,),
-                  ),
-                ),
-                SizedBox(height: 10,),
-                ListTile(
-                  leading: Icon(Icons.view_module_outlined),
-                  title: Text("Physics and Measurement",),
-                  trailing: Container(
-                    height: 35,
-                    width: 80,
-                    decoration: BoxDecoration( color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: MaterialButton(
-                      child: Text(
-                        "Start",
-                        style: TextStyle(color: Colors.white),
+                        ],
                       ),
                     ),
-                  ),
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                ListTile(
-                  leading: Icon(Icons.view_module_outlined),
-                  title: Text("Rotational Motion",),
-                  trailing: Container(
-                    height: 35,
-                    width: 80,
-                    decoration: BoxDecoration( color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: MaterialButton(
-                      child: Text(
-                        "Start",
-                        style: TextStyle(color: Colors.white),
+                    SizedBox(height: 15,),
+                    Container(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      height: 130,
+                      width: 350,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6.0,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
+                          )),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(children: [
+                            Text("35 QUESTION"),
+                            SizedBox(width: 160,),
+                            Container(
+                              width: 80,
+                              height: 27,
+                              color: Colors.greenAccent,
+                              child: Center(child: Text("Completed",style: TextStyle(color: Colors.white),)),
+                            )
+                          ]),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            "Rotational Motion",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(children: [
+                            Icon(
+                              Icons.lock_clock,
+                              color: Colors.purple,
+                            ),
+                            Text("20 minutes allowed",
+                                style: TextStyle(
+                                    color: Colors.purple,
+                                    fontWeight: FontWeight.bold)),
+                            SizedBox(
+                              width: 90,
+                            ),
+                            OutlineButton(
+                                borderSide: BorderSide(
+                                  color: Colors.purpleAccent,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.play_arrow,
+                                      color: Colors.purple,
+                                    ),
+                                    Text(
+                                      "Start",
+                                      style: TextStyle(
+                                          color: Colors.purple,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {},
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(26.0),
+                                ))
+                          ]),
+
+
+                        ],
                       ),
                     ),
-                  ),
-                ),
-                Divider(
-                  thickness: 2,
-                ),
-                ListTile(
-                  leading: Icon(Icons.view_module_outlined),
-                  title: Text("fluid Mechanics",),
-                  trailing: Container(
-                    height: 35,
-                    width: 80,
-                    decoration: BoxDecoration( color: Colors.green,borderRadius: BorderRadius.all(Radius.circular(10))),
-                    child: MaterialButton(
-                      child: Text(
-                        "Start",
-                        style: TextStyle(color: Colors.white),
+                    SizedBox(height: 15,),
+                    Container(
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      height: 130,
+                      width: 350,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6.0,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(15),
+                          )),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(children: [
+                            Text("30 QUESTION"),
+                            SizedBox(width: 160,),
+                            Container(
+                              width: 80,
+                              height: 27,
+                              color: Colors.greenAccent,
+                              child: Center(child: Text("Completed",style: TextStyle(color: Colors.white),)),
+                            )
+                          ]),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            "System of Units",
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          SizedBox(
+                            height: 8,
+                          ),
+                          Row(children: [
+                            Icon(
+                              Icons.lock_clock,
+                              color: Colors.purple,
+                            ),
+                            Text("15 minutes allowed",
+                                style: TextStyle(
+                                    color: Colors.purple,
+                                    fontWeight: FontWeight.bold)),
+                            SizedBox(
+                              width: 90,
+                            ),
+                            OutlineButton(
+                                borderSide: BorderSide(
+                                  color: Colors.purpleAccent,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Icon(
+                                      Icons.play_arrow,
+                                      color: Colors.purple,
+                                    ),
+                                    Text(
+                                      "Start",
+                                      style: TextStyle(
+                                          color: Colors.purple,
+                                          fontWeight: FontWeight.bold),
+                                    )
+                                  ],
+                                ),
+                                onPressed: () {},
+                                shape: new RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(26.0),
+                                ))
+                          ]),
+
+
+                        ],
                       ),
                     ),
-                  ),
+                  ],
                 ),
-
-
-
-              ],
-            ))
-          ]),
-        ));
+              ),
+              Text("jjjj"),
+              Text("hhh")
+            ])));
   }
 }
