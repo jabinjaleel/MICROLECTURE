@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mbls/pages/homePage.dart';
@@ -5,6 +7,7 @@ import 'package:mbls/pages/mcqTest.dart';
 import 'package:mbls/pages/profile.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 class ExamDetail extends StatelessWidget {
   // This widget is the root of your application.
@@ -31,11 +34,13 @@ class ExamDetailStateful extends StatefulWidget {
 }
 
 class ExamDetailState extends State<ExamDetailStateful> {
-  void mcq(context)
-  {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>McqTest()));
+  void mcq(context) {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => McqTest()));
   }
+double percent=50.0;
   @override
+
   Widget build(BuildContext context) {
     return DefaultTabController(
         length: 3,
@@ -81,7 +86,7 @@ class ExamDetailState extends State<ExamDetailStateful> {
                                 fontWeight: FontWeight.bold,
                                 fontSize: 15))),
                     Tab(
-                        child: Text("Final Exam",
+                        child: Text("Result",
                             style: TextStyle(
                                 color: Colors.black,
                                 fontWeight: FontWeight.bold,
@@ -115,12 +120,18 @@ class ExamDetailState extends State<ExamDetailStateful> {
                         children: [
                           Row(children: [
                             Text("25 QUESTION"),
-                            SizedBox(width: 190,),
+                            SizedBox(
+                              width: 190,
+                            ),
                             Container(
                               width: 50,
                               height: 25,
                               color: Colors.lightBlueAccent,
-                              child: Center(child: Text("NEW",style: TextStyle(color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "NEW",
+                                style: TextStyle(color: Colors.white),
+                              )),
                             )
                           ]),
                           SizedBox(
@@ -164,26 +175,37 @@ class ExamDetailState extends State<ExamDetailStateful> {
                                     )
                                   ],
                                 ),
-                                onPressed: ()=>{
-                                  showCupertinoDialog(context: context, builder: (context)=>CupertinoAlertDialog(
-                                    title: Text("Confirm!"),
-                                    content: Text("Are you Ready for Exam?"),
-                                    actions: [
-                                      CupertinoDialogAction(child: Text("Yes"),onPressed:()=>{mcq(context)},),
-                                      CupertinoDialogAction(child: Text("No"),onPressed: (){},)
-                                    ],
-                                  ))
-                                },
+                                onPressed: () => {
+                                      showCupertinoDialog(
+                                          context: context,
+                                          builder: (context) =>
+                                              CupertinoAlertDialog(
+                                                title: Text("Confirm!"),
+                                                content: Text(
+                                                    "Are you Ready for Exam?"),
+                                                actions: [
+                                                  CupertinoDialogAction(
+                                                    child: Text("Yes"),
+                                                    onPressed: () =>
+                                                        {mcq(context)},
+                                                  ),
+                                                  CupertinoDialogAction(
+                                                    child: Text("No"),
+                                                    onPressed: () {},
+                                                  )
+                                                ],
+                                              ))
+                                    },
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(26.0),
                                 ))
                           ]),
-
-
                         ],
                       ),
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
                       padding: EdgeInsets.only(top: 10, left: 10),
                       height: 130,
@@ -206,12 +228,18 @@ class ExamDetailState extends State<ExamDetailStateful> {
                         children: [
                           Row(children: [
                             Text("35 QUESTION"),
-                            SizedBox(width: 160,),
+                            SizedBox(
+                              width: 160,
+                            ),
                             Container(
                               width: 80,
                               height: 27,
                               color: Colors.greenAccent,
-                              child: Center(child: Text("Completed",style: TextStyle(color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Completed",
+                                style: TextStyle(color: Colors.white),
+                              )),
                             )
                           ]),
                           SizedBox(
@@ -260,12 +288,12 @@ class ExamDetailState extends State<ExamDetailStateful> {
                                   borderRadius: BorderRadius.circular(26.0),
                                 ))
                           ]),
-
-
                         ],
                       ),
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
                       padding: EdgeInsets.only(top: 10, left: 10),
                       height: 130,
@@ -288,12 +316,18 @@ class ExamDetailState extends State<ExamDetailStateful> {
                         children: [
                           Row(children: [
                             Text("30 QUESTION"),
-                            SizedBox(width: 160,),
+                            SizedBox(
+                              width: 160,
+                            ),
                             Container(
                               width: 80,
                               height: 27,
                               color: Colors.greenAccent,
-                              child: Center(child: Text("Completed",style: TextStyle(color: Colors.white),)),
+                              child: Center(
+                                  child: Text(
+                                "Completed",
+                                style: TextStyle(color: Colors.white),
+                              )),
                             )
                           ]),
                           SizedBox(
@@ -342,8 +376,6 @@ class ExamDetailState extends State<ExamDetailStateful> {
                                   borderRadius: BorderRadius.circular(26.0),
                                 ))
                           ]),
-
-
                         ],
                       ),
                     ),
@@ -351,7 +383,149 @@ class ExamDetailState extends State<ExamDetailStateful> {
                 ),
               ),
               Text("jjjj"),
-              Text("hhh")
+              Container(
+                width: double.infinity,
+                height: double.infinity,
+                child: Column(
+                  children: [
+
+                    Container(
+                      margin: EdgeInsets.only(top: 25),
+                      padding: EdgeInsets.only(top: 10, left: 10),
+                      width: 350,
+                      height: 180,
+                      decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              blurRadius: 6.0,
+                              offset: Offset(0, 2),
+                            ),
+                          ],
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                      child: Stack(
+                          children: [Column(
+                        children: [
+
+                          Align(
+                              alignment: Alignment.topCenter,
+                              child: RichText(
+                                  text: TextSpan(
+                                text: "",
+                                style: TextStyle(color: Colors.black),
+                                children: [
+                                  TextSpan(
+                                      text: "Practical units",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: 15))
+                                ],
+                              ))),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+
+                              Icon(
+                                Icons.question_answer_outlined,
+
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("Questions:"),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text("25"),
+
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+
+                              Icon(
+                                Icons.done,
+                                color: Colors.green,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("Corrected:"),
+                              SizedBox(
+                                width: 12,
+                              ),
+                              Text("14"),
+
+
+                            ],
+                          ),
+                          SizedBox(height: 10,),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.cancel,
+                                color: Colors.red,
+                              ),
+                              SizedBox(width: 5,),
+                              Text("Incorrected:"),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("14"),
+
+
+
+                            ],
+                          ),
+                          SizedBox(height: 10,),
+                          Row(
+                            children: [
+                              Icon(
+                                Icons.timer,
+                                color: Colors.blue,
+                              ),
+                              SizedBox(width: 5,),
+                              Text("Time taken:"),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Text("5 mins"),
+                              SizedBox(width: 55,),
+                              Text("SCORE: ",style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),),
+                              SizedBox(width: 10,),
+                              Text("28",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 17),)
+
+
+                            ],
+                          )
+                        ],
+                      ),Positioned(left: 200,top: 30,
+                              child:  CircularPercentIndicator(
+                                progressColor: Colors.blue,
+                                percent: .5,
+                                animation: true,
+                            animationDuration: 1200,
+                            center:Text(
+                            "51.0%",
+                              style: TextStyle(
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.black),
+                            ),
+                                circularStrokeCap: CircularStrokeCap.round,
+                            radius: 90.0,
+                            lineWidth: 7.0,
+                            ))])
+                    )
+                  ],
+                ),
+              )
             ])));
   }
 }

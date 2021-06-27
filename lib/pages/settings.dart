@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbls/pages/profile.dart';
 
 class DisplaySettings extends StatelessWidget {
   // This widget is the root of your application.
@@ -87,6 +88,10 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                 borderRadius: BorderRadius.circular(20)),
             child: Column(
               children: [
+                GestureDetector(
+                  onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ProfileDisplay()));
+                },child:
                 ListTile(
                   leading: Icon(
                     Icons.lock,
@@ -97,7 +102,7 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
-                ),
+                ),),
                 Divider(),
                 ListTile(
                   leading: Icon(

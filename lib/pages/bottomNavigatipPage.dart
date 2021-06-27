@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbls/pages/Exam.dart';
 import 'package:mbls/pages/homePage.dart';
 import 'package:mbls/pages/bottomNavigatipPage.dart';
 import 'package:mbls/pages/profile.dart';
@@ -37,7 +38,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   int selectedindex = 0;
-  final List<Widget> bod = [HomePage(),DiplaySubscribe(),ProfileDisplay(),DisplaySettings()];
+  final List<Widget> bod = [HomePage(),DiplaySubscribe(),Exam(),DisplaySettings()];
   void onTabTapped(int index)
   {
     setState(() {
