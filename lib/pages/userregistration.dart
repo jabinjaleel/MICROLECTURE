@@ -80,7 +80,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 22),
+                          fontSize: 24),
                     )
                   ],
                 )),
