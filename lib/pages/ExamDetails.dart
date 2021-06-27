@@ -1,5 +1,7 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mbls/pages/homePage.dart';
+import 'package:mbls/pages/mcqTest.dart';
 import 'package:mbls/pages/profile.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
@@ -29,6 +31,10 @@ class ExamDetailStateful extends StatefulWidget {
 }
 
 class ExamDetailState extends State<ExamDetailStateful> {
+  void mcq(context)
+  {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>McqTest()));
+  }
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -158,7 +164,16 @@ class ExamDetailState extends State<ExamDetailStateful> {
                                     )
                                   ],
                                 ),
-                                onPressed: () {},
+                                onPressed: ()=>{
+                                  showCupertinoDialog(context: context, builder: (context)=>CupertinoAlertDialog(
+                                    title: Text("Confirm!"),
+                                    content: Text("Are you Ready for Exam?"),
+                                    actions: [
+                                      CupertinoDialogAction(child: Text("Yes"),onPressed:()=>{mcq(context)},),
+                                      CupertinoDialogAction(child: Text("No"),onPressed: (){},)
+                                    ],
+                                  ))
+                                },
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(26.0),
                                 ))
