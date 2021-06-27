@@ -2,8 +2,10 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mbls/pages/loginPage.dart';
+import 'package:mbls/pages/bottomNavigatipPage.dart';
 import 'package:search_widget/search_widget.dart';
+
+import '../main.dart';
 
 class HomePage extends StatelessWidget {
   // This widget is the root of your application.

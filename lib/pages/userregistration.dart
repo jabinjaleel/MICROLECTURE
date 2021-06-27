@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mbls/pages/homePage.dart';
-import 'package:mbls/pages/loginPage.dart';
+import 'package:mbls/pages/bottomNavigatipPage.dart';
 import 'package:mbls/pages/profile.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
