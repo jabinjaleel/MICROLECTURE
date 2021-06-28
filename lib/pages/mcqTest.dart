@@ -41,7 +41,7 @@ class McqTestState extends State<McqTestStateful> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-
+//introslider
         body: IntroSlider(
           onDonePress: () {
             showCupertinoDialog(context: context, builder: (context)=>CupertinoAlertDialog(content: Text("Sumbit?",),actions: [
@@ -61,9 +61,9 @@ class McqTestState extends State<McqTestStateful> {
                 title: "Question 1",
                 backgroundColor: Colors.lightBlueAccent,
                 widgetDescription: Column(
-                  children: [
+                  children : [
                     ListTile(
-                      leading: Radio(
+                      leading:Radio(
                         value: ip1,
                         onChanged: (bool val1) {
                           setState(() {
