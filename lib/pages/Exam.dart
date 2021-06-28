@@ -38,14 +38,9 @@ class ExamState extends State<ExamStateful> {
         backgroundColor: Colors.white,
         leading: Icon(
           Icons.arrow_back,
-          color: Colors.orange,
+          color: Colors.black,
         ),
-        actions: [
-          Icon(
-            Icons.menu_outlined,
-            color: Colors.orange,
-          )
-        ],
+     title: Text("Exam",style: TextStyle(color: Colors.black),),
       ),
       body: Container(
           padding: EdgeInsets.only(top: 20),
