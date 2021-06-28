@@ -36,6 +36,8 @@ class McqTestStateful extends StatefulWidget {
 class McqTestState extends State<McqTestStateful> {
   List<Slide> slides = [];
   bool ip1 = true;
+  bool _value = false;
+  int val = -1;
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +59,7 @@ class McqTestState extends State<McqTestStateful> {
                             builder: (context) => ExamDetail()));
                       },
                     ),
-                    CupertinoDialogAction(child: Text("Camcel"))
+                    CupertinoDialogAction(child: Text("Cancel"))
                   ],
                 ));
       },
@@ -76,12 +78,14 @@ class McqTestState extends State<McqTestStateful> {
               children: [
                 ListTile(
                   leading: Radio(
-                    value: ip1,
-                    onChanged: (bool val1) {
+                    value: 1,
+                    groupValue: val,
+                    onChanged: (value) {
                       setState(() {
-                        ip1 = val1;
+                        val = value;
                       });
                     },
+                    activeColor: Colors.green,
                   ),
                   title: Text(
                     "Option 0",
@@ -102,12 +106,14 @@ class McqTestState extends State<McqTestStateful> {
                 ),
                 ListTile(
                   leading: Radio(
-                    value: ip1,
-                    onChanged: (bool val1) {
+                    value: 1,
+                    groupValue: val,
+                    onChanged: (value) {
                       setState(() {
-                        ip1 = val1;
+                        val = value;
                       });
                     },
+                    activeColor: Colors.green,
                   ),
                   title:
                       Text("Option 2", style: TextStyle(color: Colors.white)),
@@ -123,7 +129,7 @@ class McqTestState extends State<McqTestStateful> {
                   ),
                   title:
                       Text("Option 3", style: TextStyle(color: Colors.white)),
-                )
+                ),
               ],
             )),
         Slide(
