@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mbls/pages/bottomNavigatipPage.dart';
+import 'package:mbls/pages/subjectDetails.dart';
 import 'package:search_widget/search_widget.dart';
 
 import '../main.dart';
@@ -289,7 +290,10 @@ class HomePageState extends State<HomePageStateful> {
         SizedBox(
           height: 20,
         ),
-
+GestureDetector(onTap: (){
+  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SubjectDetails()));
+},
+  child:
         Container(
          // padding: EdgeInsets.only(left: 20),
           height: 100,
@@ -310,7 +314,7 @@ class HomePageState extends State<HomePageStateful> {
             Expanded(child:   Icon(Icons.more,color: Colors.black54,))
             ],
           ),
-        ),
+        ),),
        SizedBox(height: 10,),
         Container(
           // padding: EdgeInsets.only(left: 20),
