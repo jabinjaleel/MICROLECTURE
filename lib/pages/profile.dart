@@ -31,8 +31,6 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-
         body: Container(
             width: double.infinity,
             height: double.infinity,
@@ -44,6 +42,24 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Container(
+                        width: 50,
+                        height: 50,
+                        child: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.black,
+                        ),
+                      ),
+                      Container(
+                          padding: EdgeInsets.only(top: 12, left: 80),
+                          child: Text(
+                            "Profile Details",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 20),
+                          )),
+                      SizedBox(
+                        width: 60,
+                      ),
+                      Container(
                           width: 50,
                           height: 50,
                           child: OutlinedButton(
@@ -52,17 +68,10 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0))),
                             child: Icon(
-                              Icons.arrow_back_ios,
+                              Icons.edit,
                               color: Colors.black,
                             ),
                           )),
-                      Container(
-                          padding: EdgeInsets.only(top: 12, left: 80),
-                          child: Text(
-                            "Profile Details",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 20),
-                          ))
                     ],
                   )),
               Container(
@@ -82,14 +91,14 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                             decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: Colors.deepOrange),
-
-
-                                child: MaterialButton(onPressed: ()=>{},
-                                  child: Icon(
-                                    CupertinoIcons.camera,size: 18,
-                                    color: Colors.white,
-                                  ),
-                                )))
+                            child: MaterialButton(
+                              onPressed: () => {},
+                              child: Icon(
+                                CupertinoIcons.camera,
+                                size: 18,
+                                color: Colors.white,
+                              ),
+                            )))
                   ])),
               SizedBox(
                 height: 25,
@@ -128,7 +137,9 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                       i1: Icons.location_on,
                       label: "City",
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Container(
