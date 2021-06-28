@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mbls/pages/moduleExam.dart';
 
 class ExamContainer extends StatelessWidget
 {
@@ -98,7 +99,7 @@ class ExamContainer extends StatelessWidget
                                     CupertinoDialogAction(
                                       child: Text("Yes"),
                                       onPressed: () =>
-                                      {},
+                                      {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>ModuleExam()))},
                                     ),
                                     CupertinoDialogAction(
                                       child: Text("No"),

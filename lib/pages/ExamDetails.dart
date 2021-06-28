@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mbls/pages/homePage.dart';
 import 'package:mbls/pages/mcqTest.dart';
+import 'package:mbls/pages/moduleExam.dart';
 import 'package:mbls/pages/profile.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
@@ -286,7 +287,7 @@ class ExamDetailState extends State<ExamDetailStateful> {
                                     )
                                   ],
                                 ),
-                                onPressed: () {},
+                                onPressed: ()=>{},
                                 shape: new RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(26.0),
                                 ))
