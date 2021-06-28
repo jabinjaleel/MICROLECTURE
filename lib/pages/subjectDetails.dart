@@ -205,7 +205,7 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
                       )
                     ])),
             SizedBox(
-              height: 100,
+              height: 110,
             ),
             Center(
                 child: OutlineButton(
