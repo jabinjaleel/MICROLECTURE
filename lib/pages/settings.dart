@@ -142,11 +142,11 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                 Divider(),
                 ListTile(
                   leading: Icon(
-                    Icons.language,
+                    Icons.store,
                     color: Colors.lightBlueAccent,
                   ),
                   title: Text(
-                    "Language",
+                    "Srorage",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
