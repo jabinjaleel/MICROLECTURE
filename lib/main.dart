@@ -81,7 +81,7 @@ class LoginPageState extends State<LoginPageStateful> {
                 alignment: Alignment.topLeft,
                 margin: EdgeInsets.only(left: 35),
                 child: Text(
-                  "Email",
+                  "Username",
                   style: TextStyle(color: Colors.white),
                 )),
             SizedBox(
@@ -112,7 +112,7 @@ class LoginPageState extends State<LoginPageStateful> {
                       Icons.email,
                       color: Colors.white,
                     ),
-                    labelText: "Enter your Email"),
+                    labelText: "Enter your Username"),
               ),
             ),
             SizedBox(

@@ -27,6 +27,13 @@ class ProfileDisplayStateful extends StatefulWidget {
 
 class ProfileDisplayState extends State<ProfileDisplayStateful> {
   var name = TextEditingController();
+  var email = TextEditingController();
+
+  var phone = TextEditingController();
+
+  var city = TextEditingController();
+  var dob = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -68,23 +75,23 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(10.0))),
                             child: Icon(
-                              Icons.edit,
+                              Icons.save,
                               color: Colors.black,
                             ),
                           )),
                     ],
                   )),
               Container(
-                  height: 180,
-                  width: 180,
+                  height: 150,
+                  width: 150,
                   decoration: BoxDecoration(shape: BoxShape.circle),
                   padding: EdgeInsets.only(top: 10),
                   child: Stack(children: [
                     Image.network(
                         "https://i.pinimg.com/736x/0a/53/c3/0a53c3bbe2f56a1ddac34ea04a26be98.jpg"),
                     Positioned(
-                        top: 110,
-                        left: 110,
+                        top: 90,
+                        left: 85,
                         child: Container(
                             width: 45,
                             height: 45,
@@ -101,7 +108,7 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                             )))
                   ])),
               SizedBox(
-                height: 25,
+                height: 10,
               ),
               Container(
                 padding: EdgeInsets.only(top: 20),
@@ -114,7 +121,7 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                         topLeft: Radius.circular(25),
                         topRight: Radius.circular(25))),
                 width: double.infinity,
-                height: 455,
+                height: 500,
                 child: Column(
                   children: [
                     DisplayTextfield(
@@ -123,48 +130,54 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                       label: "Name",
                     ),
                     DisplayTextfield(
-                      con: name,
+                      con:email ,
                       i1: Icons.email,
                       label: "Email",
                     ),
                     DisplayTextfield(
-                      con: name,
+                      con: phone,
                       i1: Icons.home,
                       label: "Phone",
                     ),
+
                     DisplayTextfield(
-                      con: name,
+                      con: city,
                       i1: Icons.location_on,
                       label: "City",
                     ),
-                    SizedBox(
-                      height: 10,
+                    DisplayTextfield(
+                      con: dob,
+                      i1: Icons.calendar_today,
+                      label: "DOB",
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Container(
-                        width: 200,
-                        height: 65,
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.centerLeft,
-                              end: Alignment.centerRight,
-                              colors: [
-                                Colors.deepOrange,
-                                Colors.deepOrangeAccent
-                              ]),
-                          borderRadius:
-                              BorderRadius.only(topLeft: Radius.circular(30)),
-                        ),
-                        child: TextButton(
-                          onPressed: () => {},
-                          child: Text(
-                            "Save",
-                            style: TextStyle(color: Colors.white, fontSize: 20),
-                          ),
-                        ),
-                      ),
-                    )
+
+
+                    //
+                    // Align(
+                    //   alignment: Alignment.bottomRight,
+                    //   child: Container(
+                    //     width: 200,
+                    //     height: 65,
+                    //     decoration: BoxDecoration(
+                    //       gradient: LinearGradient(
+                    //           begin: Alignment.centerLeft,
+                    //           end: Alignment.centerRight,
+                    //           colors: [
+                    //             Colors.deepOrange,
+                    //             Colors.deepOrangeAccent
+                    //           ]),
+                    //       borderRadius:
+                    //           BorderRadius.only(topLeft: Radius.circular(30)),
+                    //     ),
+                    //     child: TextButton(
+                    //       onPressed: () => {},
+                    //       child: Text(
+                    //         "Save",
+                    //         style: TextStyle(color: Colors.white, fontSize: 20),
+                    //       ),
+                    //     ),
+                    //   ),
+                    // )
                   ],
                 ),
               )

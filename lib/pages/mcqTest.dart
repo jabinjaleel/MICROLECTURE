@@ -66,7 +66,7 @@ class McqTestState extends State<McqTestStateful> {
       slides: [
         Slide(
             centerWidget: Text(
-              "What is Fluid Mechanics?",
+              "What is Fluid Velocity?",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 20,
@@ -88,7 +88,7 @@ class McqTestState extends State<McqTestStateful> {
                     activeColor: Colors.green,
                   ),
                   title: Text(
-                    "Option 0",
+                    "Time/Distance",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -102,7 +102,7 @@ class McqTestState extends State<McqTestStateful> {
                     },
                   ),
                   title:
-                      Text("Option 1", style: TextStyle(color: Colors.white)),
+                      Text("Distance/Time", style: TextStyle(color: Colors.white)),
                 ),
                 ListTile(
                   leading: Radio(
@@ -116,7 +116,7 @@ class McqTestState extends State<McqTestStateful> {
                     activeColor: Colors.green,
                   ),
                   title:
-                      Text("Option 2", style: TextStyle(color: Colors.white)),
+                      Text("Time/Speed", style: TextStyle(color: Colors.white)),
                 ),
                 ListTile(
                   leading: Radio(
@@ -128,7 +128,7 @@ class McqTestState extends State<McqTestStateful> {
                     },
                   ),
                   title:
-                      Text("Option 3", style: TextStyle(color: Colors.white)),
+                      Text("Speed/Time", style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(height: 250,),
                 Align(alignment: Alignment.bottomLeft,child: Row(children: [Icon(CupertinoIcons.time_solid,color: Colors.white,),
@@ -221,7 +221,7 @@ class McqTestState extends State<McqTestStateful> {
                     },
                   ),
                   title: Text(
-                    "Option 0",
+                    "Time/Distance",
                     style: TextStyle(color: Colors.white),
                   ),
                 ),
@@ -235,7 +235,7 @@ class McqTestState extends State<McqTestStateful> {
                     },
                   ),
                   title:
-                      Text("Option 1", style: TextStyle(color: Colors.white)),
+                      Text("Distace/Speed", style: TextStyle(color: Colors.white)),
                 ),
                 ListTile(
                   leading: Radio(
@@ -247,7 +247,7 @@ class McqTestState extends State<McqTestStateful> {
                     },
                   ),
                   title:
-                      Text("Option 2", style: TextStyle(color: Colors.white)),
+                      Text("Time/speed", style: TextStyle(color: Colors.white)),
                 ),
                 ListTile(
                   leading: Radio(
@@ -259,7 +259,7 @@ class McqTestState extends State<McqTestStateful> {
                     },
                   ),
                   title:
-                      Text("Option 3", style: TextStyle(color: Colors.white)),
+                      Text("Speed/Time", style: TextStyle(color: Colors.white)),
                 )
               ],
             )),

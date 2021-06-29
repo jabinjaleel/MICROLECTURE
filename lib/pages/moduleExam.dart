@@ -83,7 +83,10 @@ class ModuleExamState extends State<ModuleExamStateful> {
                       decoration: InputDecoration.collapsed(hintText: "Enter your answer here"),
                     ),
                   )
-              )
+              ),
+              SizedBox(height:50,),
+              Align(alignment: Alignment.bottomLeft,child: Row(children: [Icon(CupertinoIcons.time_solid,color: Colors.white,),
+                SizedBox(width: 5,),Text(" 10 mibutes",style: TextStyle(color: Colors.white),)]),)
             ],
           )),
               Slide(

@@ -208,12 +208,12 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                         width: 5,
                       ),
                       Text(
-                        "DOB:",
+                        "",
                         style: TextStyle(color: Colors.white.withOpacity(0.5)),
                       ),
                       SizedBox(width: 10,),
                       Text(
-                        currentDate.toString(),
+                       "01/11/1997",
                         style: TextStyle(color: Colors.white),
                       )
                     ],

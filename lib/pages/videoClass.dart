@@ -57,7 +57,7 @@ class VideoClassState extends State<VideoClassStateful> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "JEE MATHS",
+          "JEE PHYSICS",
         ),
       ),
       body: Column(children: [
@@ -65,10 +65,97 @@ class VideoClassState extends State<VideoClassStateful> {
           future: InitializeVideoPlayerfuture,
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.done) {
-              return AspectRatio(
-                aspectRatio: controller.value.aspectRatio,
-                child: VideoPlayer(controller),
-              );
+              return Stack(children: [
+                AspectRatio(
+                  aspectRatio: controller.value.aspectRatio,
+                  child: VideoPlayer(controller),
+                ),
+                // Positioned(
+                //     top: 20,
+                //     left: 5,
+                //     child: Container(
+                //       padding: EdgeInsets.only(top: 10),
+                //       decoration: BoxDecoration(
+                //           color: Colors.black12.withOpacity(0.2),
+                //           borderRadius: BorderRadius.all(Radius.circular(15))),
+                //       height: 200,
+                //       width: 400,
+                //       child: Column(
+                //         children: [
+                //           Text(
+                //             "What is the formula for Velocity?",
+                //             style: TextStyle(
+                //                 fontWeight: FontWeight.bold, fontSize: 16),
+                //           ),
+                //           SizedBox(
+                //             height: 20,
+                //           ),
+                //           Container(
+                //             child: Row(
+                //               children: [
+                //                 Radio(
+                //                   value: true,
+                //                   onChanged: (bool val) {
+                //                     val = false;
+                //                   },
+                //                 ),
+                //                 Text("Speed/Distance",
+                //                     style:
+                //                         TextStyle(fontWeight: FontWeight.bold)),
+                //                 SizedBox(
+                //                   width: 40,
+                //                 ),
+                //                 Radio(
+                //                   value: true,
+                //                   onChanged: (bool val) {
+                //                     val = false;
+                //                   },
+                //                 ),
+                //                 Text("Speed/Time",
+                //                     style:
+                //                         TextStyle(fontWeight: FontWeight.bold))
+                //               ],
+                //             ),
+                //           ),
+                //           Container(
+                //             child: Row(
+                //               children: [
+                //                 Radio(
+                //                   value: true,
+                //                   onChanged: (bool val) {
+                //                     val = false;
+                //                   },
+                //                 ),
+                //                 Text("Time/Distance",
+                //                     style:
+                //                         TextStyle(fontWeight: FontWeight.bold)),
+                //                 SizedBox(
+                //                   width: 40,
+                //                 ),
+                //                 Radio(
+                //                   value: true,
+                //                   onChanged: (bool val) {
+                //                     val = false;
+                //                   },
+                //                 ),
+                //                 Text(
+                //                   "Speed/Distance",
+                //                   style: TextStyle(fontWeight: FontWeight.bold),
+                //                 )
+                //               ],
+                //             ),
+                //           ),
+                //           Align(
+                //             alignment: Alignment.bottomRight,
+                //             child: OutlineButton(
+                //               onPressed: () {},
+                //               child: Text("Submit"),
+                //             ),
+                //           )
+                //         ],
+                //       ),
+                //     ))
+              ]);
             } else {
               return Center(
                 child: CircularProgressIndicator(),
@@ -183,43 +270,84 @@ class VideoClassState extends State<VideoClassStateful> {
                 ),
               ),
               SizedBox(
-                height: 10,
+                height: 15,
               ),
               RichText(
                 text: TextSpan(children: [
                   TextSpan(
-                      text: "Topic:",
-                      style: TextStyle(color: Colors.black, fontSize: 18)),
-                  TextSpan(
-                      text: " Calculas and Analysis",
+                      text: "Module  :",
                       style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 15))
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                      text: "    Rotational Motion",
+                      style: TextStyle(color: Colors.black, fontSize: 15))
                 ]),
               ),
               SizedBox(
-                height: 8,
+                height: 15,
+              ),
+              RichText(
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Chapter :",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                      text: "     Overview of Rotational Motion",
+                      style: TextStyle(color: Colors.black, fontSize: 15))
+                ]),
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              RichText(
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Topic      :",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                      text: "     Velocity",
+                      style: TextStyle(color: Colors.black, fontSize: 15))
+                ]),
+              ),
+              SizedBox(
+                height: 15,
               ),
               RichText(
                 text: TextSpan(children: [
                   TextSpan(
                       text: "Description:",
-                      style: TextStyle(color: Colors.black, fontSize: 18)),
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold)),
                   TextSpan(
                       text:
-                          " Calculus studies the computation of limits, derivatives, and integrals of functions of real numbers, and in particular studies instantaneous rates of change. Analysis evolved from calculus.",
+                          " Velocity, quantity that designates how fast and in what direction a point is moving. A point always moves in a direction that is tangent to its path.If a point moves a certain distance along its path in a given time interval, its average speed during the interval is equal to the distance moved divided by the time taken",
                       style: TextStyle(color: Colors.black, fontSize: 15))
                 ]),
               ),
               SizedBox(
-                height: 8,
+                height: 15,
               ),
               RichText(
                 text: TextSpan(children: [
                   TextSpan(
                       text: "Duration:",
-                      style: TextStyle(color: Colors.black, fontSize: 18)),
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold)),
                   TextSpan(
                       text: " 30 Minutes",
                       style: TextStyle(color: Colors.black, fontSize: 15))
@@ -230,7 +358,10 @@ class VideoClassState extends State<VideoClassStateful> {
           height: 380,
           width: double.infinity,
           decoration: BoxDecoration(
-              color: Colors.white,
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Colors.white, Colors.white70]),
               boxShadow: [
                 BoxShadow(
                   color: Colors.black12,
@@ -259,7 +390,7 @@ class VideoClassState extends State<VideoClassStateful> {
                   return Container(
                       padding: EdgeInsets.only(left: 10),
                       decoration: BoxDecoration(),
-                      height: 500,
+                      height: 800,
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -270,7 +401,7 @@ class VideoClassState extends State<VideoClassStateful> {
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              margin: EdgeInsets.only(bottom: 30, left: 150),
+                              margin: EdgeInsets.only(bottom: 30, left: 140),
                               width: 250,
                               height: 40,
                               decoration: BoxDecoration(
@@ -287,7 +418,7 @@ class VideoClassState extends State<VideoClassStateful> {
                                   style: TextStyle(fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              margin: EdgeInsets.only(bottom: 50, right: 150),
+                              margin: EdgeInsets.only(bottom: 20, right: 150),
                               width: 280,
                               height: 110,
                               decoration: BoxDecoration(

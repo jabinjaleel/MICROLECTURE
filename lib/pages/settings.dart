@@ -139,7 +139,7 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                     color: Colors.lightBlueAccent,
                   ),
                   title: Text(
-                    "Payment",
+                    "Payment History",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
