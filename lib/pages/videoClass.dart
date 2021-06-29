@@ -186,24 +186,44 @@ class VideoClassState extends State<VideoClassStateful> {
                 height: 10,
               ),
               RichText(
-                text: TextSpan(
-
-                    children: [TextSpan(text: "Topic:",style: TextStyle(color: Colors.black,fontSize: 18)),
-                      TextSpan(text: " Calculas and Analysis",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 15))]),
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Topic:",
+                      style: TextStyle(color: Colors.black, fontSize: 18)),
+                  TextSpan(
+                      text: " Calculas and Analysis",
+                      style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15))
+                ]),
               ),
-              SizedBox(height: 8,),
-              RichText(
-                text: TextSpan(
-
-                    children: [TextSpan(text: "Description:",style: TextStyle(color: Colors.black,fontSize: 18)),
-                      TextSpan(text: " Calculus studies the computation of limits, derivatives, and integrals of functions of real numbers, and in particular studies instantaneous rates of change. Analysis evolved from calculus.",style: TextStyle(color: Colors.black,fontSize: 15))]),
+              SizedBox(
+                height: 8,
               ),
-              SizedBox(height: 8,),
               RichText(
-                text: TextSpan(
-
-                    children: [TextSpan(text: "Duration:",style: TextStyle(color: Colors.black,fontSize: 18)),
-                      TextSpan(text: " 30 Minutes",style: TextStyle(color: Colors.black,fontSize: 15))]),
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Description:",
+                      style: TextStyle(color: Colors.black, fontSize: 18)),
+                  TextSpan(
+                      text:
+                          " Calculus studies the computation of limits, derivatives, and integrals of functions of real numbers, and in particular studies instantaneous rates of change. Analysis evolved from calculus.",
+                      style: TextStyle(color: Colors.black, fontSize: 15))
+                ]),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              RichText(
+                text: TextSpan(children: [
+                  TextSpan(
+                      text: "Duration:",
+                      style: TextStyle(color: Colors.black, fontSize: 18)),
+                  TextSpan(
+                      text: " 30 Minutes",
+                      style: TextStyle(color: Colors.black, fontSize: 15))
+                ]),
               ),
             ],
           ),
@@ -240,47 +260,86 @@ class VideoClassState extends State<VideoClassStateful> {
                       padding: EdgeInsets.only(left: 10),
                       decoration: BoxDecoration(),
                       height: 500,
-                      child: Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Row(children: [
-                            Container(
-                              width: 330,
-                              height: 90,
-                              child: TextField(
-                                decoration: InputDecoration(
-                                  fillColor: Colors.white,
-                                  filled: true,
-                                  labelStyle: TextStyle(color: Colors.black),
-                                  border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(20))),
-                                  prefixIcon: Icon(
-                                    Icons.question_answer_outlined,
-                                    color: Colors.black,
-                                  ),
-                                  labelText: "Question?",
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                            Container(
-                                padding: EdgeInsets.only(bottom: 30, left: 15),
-                                child: Container(
-                                  alignment: Alignment.center,
-                                  width: 50,
-                                  height: 50,
-                                  decoration: BoxDecoration(
-                                      shape: BoxShape.circle,
-                                      color: Colors.lightBlueAccent),
-                                  child: IconButton(
-                                    onPressed: () {},
-                                    icon: Icon(
-                                      Icons.send_outlined,
-                                      color: Colors.white,
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            // Container(
+                            //   child: Center(
+                            //     child: Text(
+                            //       "What is Velocity?",
+                            //       style: TextStyle(fontWeight: FontWeight.bold),
+                            //     ),
+                            //   ),
+                            //   margin: EdgeInsets.only(bottom: 30, left: 150),
+                            //   width: 250,
+                            //   height: 40,
+                            //   decoration: BoxDecoration(
+                            //       color: Colors.white,
+                            //       borderRadius: BorderRadius.all(
+                            //         Radius.circular(15),
+                            //       )),
+                            // ),
+                            // Container(
+                            //   padding: EdgeInsets.only(left: 10),
+                            //   child: Center(
+                            //     child: Text(
+                            //       "The velocity of an object is the rate of change of its position with respect to a frame of reference, and is a function of time. Velocity is equivalent to a specification of an object's speed and direction of motion.",
+                            //       style: TextStyle(fontWeight: FontWeight.bold),
+                            //     ),
+                            //   ),
+                            //   margin: EdgeInsets.only(bottom: 50, right: 150),
+                            //   width: 280,
+                            //   height: 110,
+                            //   decoration: BoxDecoration(
+                            //       color: Colors.white,
+                            //       borderRadius: BorderRadius.all(
+                            //         Radius.circular(15),
+                            //       )),
+                            // ),
+                            Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Row(children: [
+                                  Container(
+                                    width: 330,
+                                    height: 90,
+                                    child: TextField(
+                                      decoration: InputDecoration(
+                                        fillColor: Colors.white,
+                                        filled: true,
+                                        labelStyle:
+                                            TextStyle(color: Colors.black),
+                                        border: OutlineInputBorder(
+                                            borderRadius: BorderRadius.all(
+                                                Radius.circular(20))),
+                                        prefixIcon: Icon(
+                                          Icons.question_answer_outlined,
+                                          color: Colors.black,
+                                        ),
+                                        labelText: "Question?",
+                                      ),
+                                      textAlign: TextAlign.center,
                                     ),
                                   ),
-                                )),
-                          ])));
+                                  Container(
+                                      padding:
+                                          EdgeInsets.only(bottom: 30, left: 15),
+                                      child: Container(
+                                        alignment: Alignment.center,
+                                        width: 50,
+                                        height: 50,
+                                        decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            color: Colors.lightBlueAccent),
+                                        child: IconButton(
+                                          onPressed: () {},
+                                          icon: Icon(
+                                            Icons.send_outlined,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                      )),
+                                ]))
+                          ]));
                 });
           },
           child: Icon(Icons.chat_bubble)
