@@ -263,39 +263,39 @@ class VideoClassState extends State<VideoClassStateful> {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            // Container(
-                            //   child: Center(
-                            //     child: Text(
-                            //       "What is Velocity?",
-                            //       style: TextStyle(fontWeight: FontWeight.bold),
-                            //     ),
-                            //   ),
-                            //   margin: EdgeInsets.only(bottom: 30, left: 150),
-                            //   width: 250,
-                            //   height: 40,
-                            //   decoration: BoxDecoration(
-                            //       color: Colors.white,
-                            //       borderRadius: BorderRadius.all(
-                            //         Radius.circular(15),
-                            //       )),
-                            // ),
-                            // Container(
-                            //   padding: EdgeInsets.only(left: 10),
-                            //   child: Center(
-                            //     child: Text(
-                            //       "The velocity of an object is the rate of change of its position with respect to a frame of reference, and is a function of time. Velocity is equivalent to a specification of an object's speed and direction of motion.",
-                            //       style: TextStyle(fontWeight: FontWeight.bold),
-                            //     ),
-                            //   ),
-                            //   margin: EdgeInsets.only(bottom: 50, right: 150),
-                            //   width: 280,
-                            //   height: 110,
-                            //   decoration: BoxDecoration(
-                            //       color: Colors.white,
-                            //       borderRadius: BorderRadius.all(
-                            //         Radius.circular(15),
-                            //       )),
-                            // ),
+                            Container(
+                              child: Center(
+                                child: Text(
+                                  "What is Velocity?",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              margin: EdgeInsets.only(bottom: 30, left: 150),
+                              width: 250,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(15),
+                                  )),
+                            ),
+                            Container(
+                              padding: EdgeInsets.only(left: 10),
+                              child: Center(
+                                child: Text(
+                                  "The velocity of an object is the rate of change of its position with respect to a frame of reference, and is a function of time. Velocity is equivalent to a specification of an object's speed and direction of motion.",
+                                  style: TextStyle(fontWeight: FontWeight.bold),
+                                ),
+                              ),
+                              margin: EdgeInsets.only(bottom: 50, right: 150),
+                              width: 280,
+                              height: 110,
+                              decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(15),
+                                  )),
+                            ),
                             Align(
                                 alignment: Alignment.bottomLeft,
                                 child: Row(children: [

@@ -93,7 +93,9 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
                   "Description",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 28),
                 )),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Container(
                 margin: EdgeInsets.only(left: 20),
                 child: Column(
@@ -103,7 +105,7 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
                       Text(
                         "Physics is the natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force. Physics is one of the most fundamental scientific disciplines, and its main goal is to understand how the universe behaves.",
                         style: TextStyle(
-                           // fontWeight: FontWeight.bold,
+                            // fontWeight: FontWeight.bold,
                             fontFamily: "TimesNewRoman",
                             fontSize: 16),
                       ),
@@ -209,7 +211,10 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
             ),
             Center(
                 child: OutlineButton(
-              child: Text("SUBSCRIBE",style: TextStyle(color: Colors.red),),
+              child: Text(
+                "SUBSCRIBE",
+                style: TextStyle(color: Colors.red),
+              ),
               onPressed: () {},
               borderSide: BorderSide(
                 color: Colors.red,
@@ -266,7 +271,14 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
                   style: TextStyle(color: Colors.white),
                 ),
                 SizedBox(
-                  height: 30,
+                  height: 10,
+                ),
+                Text(
+                  "Rs.500",
+                  style: TextStyle(color: Colors.white),
+                ),
+                SizedBox(
+                  height: 15,
                 ),
                 Container(
                     margin: EdgeInsets.only(left: 90),
@@ -285,14 +297,14 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
                           width: 50,
                         ),
                         Icon(
-                          Icons.subscriptions,
+                          Icons.remove_red_eye,
                           color: Colors.white,
                           size: 30,
                         ),
                         Text(
                           " 1250",
                           style: TextStyle(color: Colors.white),
-                        )
+                        ),
                       ],
                     ))
               ],

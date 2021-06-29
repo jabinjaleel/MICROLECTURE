@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbls/pages/notification.dart';
 import 'package:mbls/pages/profile.dart';
 
 class DisplaySettings extends StatelessWidget {
@@ -104,17 +105,21 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                   ),
                 ),),
                 Divider(),
+                GestureDetector(onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>SubjectNotification()));
+                },
+                  child:
                 ListTile(
                   leading: Icon(
-                    Icons.security,
+                    Icons.notification_important_outlined,
                     color: Colors.lightBlueAccent,
                   ),
                   title: Text(
-                    "Security",
+                    "Notification",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
-                ),
+                ),),
                 Divider(),
                 ListTile(
                   leading: Icon(
@@ -216,21 +221,16 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
               Divider(),
               ListTile(
                   leading: Icon(
-                    Icons.yard_sharp,
+                    Icons.settings,
                     color: Colors.lightBlueAccent,
                   ),
                   title: Text(
-                    "Yahoo",
+                    "Settings",
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
 
                   ),
-                  trailing: Switch(activeTrackColor: Colors.white,
-
-                      inactiveThumbColor: Colors.redAccent,
-                      value: glflag, onChanged: (gflag){
-                        flagchange1(gflag);
-                      })
+              
               ),
               Divider(),
             ],),
