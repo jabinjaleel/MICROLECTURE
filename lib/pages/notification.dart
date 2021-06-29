@@ -75,10 +75,10 @@ class SubjectNotificationState extends State<SubjectNotificationStateful> {
                     ),
                     Expanded(
                         child: IconButton(
-                            onPressed: () {},
+                            onPressed: () {_selectDate(context);},
                             icon: Icon(
                               Icons.alarm,
-                              color: Colors.yellow,
+                              color: Colors.white,
                             )))
                   ],
                 ),

@@ -130,6 +130,9 @@ class McqTestState extends State<McqTestStateful> {
                   title:
                       Text("Option 3", style: TextStyle(color: Colors.white)),
                 ),
+                SizedBox(height: 250,),
+                Align(alignment: Alignment.bottomLeft,child: Row(children: [Icon(CupertinoIcons.time_solid,color: Colors.white,),
+                SizedBox(width: 5,),Text(" 7 mibutes",style: TextStyle(color: Colors.white),)]),)
               ],
             )),
         Slide(
