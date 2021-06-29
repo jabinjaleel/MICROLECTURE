@@ -75,7 +75,7 @@ class ModuleExamState extends State<ModuleExamStateful> {
               ),
                   shadowColor: Colors.black12,
                   elevation: 3.0,
-                  color: Colors.lightBlue,
+                  color: Colors.lightBlue.withOpacity(.8),
                   child: Padding(
                     padding: EdgeInsets.all(8.0),
                     child: TextField(
@@ -88,7 +88,7 @@ class ModuleExamState extends State<ModuleExamStateful> {
           )),
               Slide(
                   backgroundColor: Colors.lightBlueAccent,
-                  title: "Question 1",
+                  title: "Question 2",
                   centerWidget: Text(
                     "Explain the working of Electric Engine?",
                     style: TextStyle(color: Colors.white, fontSize: 18),
@@ -100,7 +100,7 @@ class ModuleExamState extends State<ModuleExamStateful> {
                       ),
                           shadowColor: Colors.black12,
                           elevation: 3.0,
-                          color: Colors.lightBlue,
+                          color: Colors.lightBlue.withOpacity(.8),
                           child: Padding(
                             padding: EdgeInsets.all(8.0),
                             child: TextField(

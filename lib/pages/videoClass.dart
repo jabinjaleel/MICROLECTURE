@@ -76,36 +76,154 @@ class VideoClassState extends State<VideoClassStateful> {
             }
           },
         ),
-Divider(thickness: 2,),
+        Divider(
+          thickness: 2,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-                width: 50,
-                height: 50,
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 6.0,
+                    offset: Offset(0, 2),
+                  ),
+                ], shape: BoxShape.circle, color: Colors.yellow),
+                child: Center(
+                    child: IconButton(
+                        color: Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            if (controller.value.isPlaying) {
+                              controller.pause();
+                            } else {
+                              controller.play();
+                            }
+                          });
+                        },
+                        icon: Icon(Icons.fast_forward_outlined)))),
+            SizedBox(
+              width: 10,
+            ),
+            Container(
+                width: 40,
+                height: 40,
                 decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 6.0,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
                     shape: BoxShape.circle,
                     color: controller.value.isPlaying
                         ? Colors.yellow
                         : Colors.greenAccent),
-                child: IconButton(
-                    color: Colors.white,
-                    onPressed: () {
-                      setState(() {
-                        if (controller.value.isPlaying) {
-                          controller.pause();
-                        } else {
-                          controller.play();
-                        }
-                      });
-                    },
-                    icon: controller.value.isPlaying
-                        ? Icon(Icons.pause)
-                        : Icon(Icons.play_arrow))),
+                child: Center(
+                    child: IconButton(
+                        color: Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            if (controller.value.isPlaying) {
+                              controller.pause();
+                            } else {
+                              controller.play();
+                            }
+                          });
+                        },
+                        icon: controller.value.isPlaying
+                            ? Icon(Icons.pause)
+                            : Icon(Icons.play_arrow)))),
+            SizedBox(
+              width: 10,
+            ),
+            Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 6.0,
+                    offset: Offset(0, 2),
+                  ),
+                ], shape: BoxShape.circle, color: Colors.yellow),
+                child: Center(
+                    child: IconButton(
+                        color: Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            if (controller.value.isPlaying) {
+                              controller.pause();
+                            } else {
+                              controller.play();
+                            }
+                          });
+                        },
+                        icon: Icon(Icons.fast_rewind_outlined)))),
           ],
         ),
-        SizedBox(height: 10,),
-       // Container(width: double.infinity,height: 380,decoration: BoxDecoration(color: Colors.blueGrey,borderRadius: BorderRadius.all(Radius.circular(15))),)
+        SizedBox(
+          height: 10,
+        ),
+        Container(
+          padding: EdgeInsets.only(top: 20, left: 20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Details",
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              RichText(
+                text: TextSpan(
+
+                    children: [TextSpan(text: "Topic:",style: TextStyle(color: Colors.black,fontSize: 18)),
+                      TextSpan(text: " Calculas and Analysis",style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 15))]),
+              ),
+              SizedBox(height: 8,),
+              RichText(
+                text: TextSpan(
+
+                    children: [TextSpan(text: "Description:",style: TextStyle(color: Colors.black,fontSize: 18)),
+                      TextSpan(text: " Calculus studies the computation of limits, derivatives, and integrals of functions of real numbers, and in particular studies instantaneous rates of change. Analysis evolved from calculus.",style: TextStyle(color: Colors.black,fontSize: 15))]),
+              ),
+              SizedBox(height: 8,),
+              RichText(
+                text: TextSpan(
+
+                    children: [TextSpan(text: "Duration:",style: TextStyle(color: Colors.black,fontSize: 18)),
+                      TextSpan(text: " 30 Minutes",style: TextStyle(color: Colors.black,fontSize: 15))]),
+              ),
+            ],
+          ),
+          height: 380,
+          width: double.infinity,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 6.0,
+                  offset: Offset(0, 2),
+                ),
+              ],
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              )),
+        )
+        // Container(width: double.infinity,height: 380,decoration: BoxDecoration(color: Colors.blueGrey,borderRadius: BorderRadius.all(Radius.circular(15))),)
       ]),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
@@ -145,23 +263,23 @@ Divider(thickness: 2,),
                                 textAlign: TextAlign.center,
                               ),
                             ),
-                            Container(padding: EdgeInsets.only(bottom: 30,left: 15),
-                                child:
                             Container(
-                              alignment: Alignment.center,
-                              width: 50,
-                              height: 50,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.lightBlueAccent),
-                              child: IconButton(
-                                onPressed: () {},
-                                icon: Icon(
-                                  Icons.send_outlined,
-                                  color: Colors.white,
-                                ),
-                              ),
-                            )),
+                                padding: EdgeInsets.only(bottom: 30, left: 15),
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  width: 50,
+                                  height: 50,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.lightBlueAccent),
+                                  child: IconButton(
+                                    onPressed: () {},
+                                    icon: Icon(
+                                      Icons.send_outlined,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                )),
                           ])));
                 });
           },

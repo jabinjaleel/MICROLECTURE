@@ -256,6 +256,7 @@ class DiplaySubscribeState extends State<DiplaySubscribeStateful> {
                             height: 100,
                             width: 390,
                             decoration: BoxDecoration(
+
                                 borderRadius: BorderRadius.circular(25),
                                 color: Color.fromRGBO(58, 66, 86, 1.0)),
                             child: Row(
