@@ -272,7 +272,7 @@ class LoginPageState extends State<LoginPageStateful> {
             ),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               Text(
-                "Don't have an Account?",
+                " Don't have an Account?",
                 style: TextStyle(color: Colors.white),
               ),
               TextButton(
@@ -280,11 +280,13 @@ class LoginPageState extends State<LoginPageStateful> {
                     Navigator.of(context).push(MaterialPageRoute(builder: (context)=>UserRegistration()));
                   },
                   child: Text(
-                    "Sign Up",
+                    "Sign-Up",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ))
-            ])
+            ]),
+            SizedBox(height: 25,),
+            Text("Take a Tour",style: TextStyle(color: Colors.white),)
           ],
         ),
       ),

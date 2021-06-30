@@ -49,24 +49,25 @@ class SubjectNotificationState extends State<SubjectNotificationStateful> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+      appBar: AppBar(
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-        appBar: AppBar(
-          backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-          title: Text("Notification"),
-        ),
-        body: Container(
-          margin: EdgeInsets.only(top: 20),
-          height: double.infinity,
-          width: double.infinity,
-          child: Column(
+        title: Text("Notification"),
+      ),
+      body: Container(
+        margin: EdgeInsets.only(top: 20),
+        height: double.infinity,
+        width: double.infinity,
+        child: Column(
             children: [
               Container(
                 padding: EdgeInsets.only(left: 50),
                 child: Row(
                   children: [
+                    Icon(CupertinoIcons.book_solid,color: Colors.lightBlueAccent,),
                     Expanded(
                       child: Text(
-                        "JEE PHYSICS",
+                        "   JEE PHYSICS",
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
@@ -75,7 +76,9 @@ class SubjectNotificationState extends State<SubjectNotificationStateful> {
                     ),
                     Expanded(
                         child: IconButton(
-                            onPressed: () {_selectDate(context);},
+                            onPressed: () {
+                              _selectDate(context);
+                            },
                             icon: Icon(
                               Icons.alarm,
                               color: Colors.white,
@@ -90,41 +93,53 @@ class SubjectNotificationState extends State<SubjectNotificationStateful> {
                       Radius.circular(12),
                     )),
               ),
+
               SizedBox(
-                height: 15,
+                height: 14,
               ),
+
               Container(
                 padding: EdgeInsets.only(left: 50),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Text(
-                        "MATHS",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Expanded(
-                        child: IconButton(
-                            onPressed: () { _selectDate(context);},
-                            icon: Icon(
-                              Icons.alarm,
-                              color: Colors.yellow,
-                            )))
-                  ],
+                child:
+                Column(
+                  children: [Row(children: [
+                    Icon(CupertinoIcons.book_solid,color: Colors.lightBlueAccent,),
+                Expanded(
+                child: Text(
+                  "   MATHS",
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 15),
                 ),
-                height: 80,
-                width: 350,
-                decoration: BoxDecoration(
-                    color: Color.fromRGBO(45, 55, 75, 1.0),
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(12),
-                    )),
-              )
-            ],
-          ),
-        ));
+              ),
+              Expanded(
+                  child: IconButton(
+                      onPressed: () {
+                        _selectDate(context);
+                      },
+                      icon: Icon(
+                        Icons.alarm,
+                        color: Colors.yellow,
+                      )))
+            ]),
+        Container(margin: EdgeInsets.only(left: 120,top: 5),
+            child: Text("(28/06/2021-8:30 PM)", style: TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontFamily: "monoSpace"),))
+          ],
+        ),
+        height: 80,
+        width: 350,
+        decoration: BoxDecoration(
+            color: Color.fromRGBO(45, 55, 75, 1.0),
+            borderRadius: BorderRadius.all(
+              Radius.circular(12),
+            )),
+      )
+      ],
+    ),)
+    );
   }
 }

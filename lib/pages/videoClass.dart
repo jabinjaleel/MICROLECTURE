@@ -405,6 +405,7 @@ class VideoClassState extends State<VideoClassStateful> {
                               width: 250,
                               height: 40,
                               decoration: BoxDecoration(
+
                                   color: Colors.white,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(15),

@@ -312,6 +312,7 @@ class SubjectDetailsState extends State<SubjectDetailsStateful> {
             decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.bottomCenter,
+
                     end: Alignment.topCenter,
                     colors: [
                       Colors.lightBlueAccent,

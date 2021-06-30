@@ -149,6 +149,7 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                   leading: Icon(
                     Icons.store,
                     color: Colors.lightBlueAccent,
+
                   ),
                   title: Text(
                     "Srorage",

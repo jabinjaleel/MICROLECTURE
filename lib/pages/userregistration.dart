@@ -219,6 +219,8 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                     ],
                   ),
                 )),
+
+
             SizedBox(
               height: 30,
             ),

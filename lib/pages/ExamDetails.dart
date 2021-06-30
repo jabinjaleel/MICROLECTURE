@@ -303,6 +303,7 @@ class ExamDetailState extends State<ExamDetailStateful> {
                       height: 130,
                       width: 350,
                       decoration: BoxDecoration(
+
                           color: Colors.white,
                           boxShadow: [
                             BoxShadow(

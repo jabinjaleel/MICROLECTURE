@@ -40,8 +40,10 @@ class SubModuleState extends State<SubModuleStateful> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
-        appBar: AppBar(
-          backgroundColor: Color.fromRGBO(58, 66, 86, 1.0),
+        appBar:
+        AppBar(
+          backgroundColor:
+          Color.fromRGBO(58, 66, 86, 1.0),
           title: Text("JEE Physics"),
         ),
         body: Container(

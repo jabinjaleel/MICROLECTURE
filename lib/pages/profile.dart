@@ -88,7 +88,7 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                   padding: EdgeInsets.only(top: 10),
                   child: Stack(children: [
                     Image.network(
-                        "https://i.pinimg.com/736x/0a/53/c3/0a53c3bbe2f56a1ddac34ea04a26be98.jpg"),
+                        " https://i.pinimg.com/736x/0a/53/c3/0a53c3bbe2f56a1ddac34ea04a26be98.jpg"),
                     Positioned(
                         top: 90,
                         left: 85,

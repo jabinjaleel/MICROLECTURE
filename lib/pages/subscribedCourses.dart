@@ -261,6 +261,7 @@ class DiplaySubscribeState extends State<DiplaySubscribeStateful> {
                                 color: Color.fromRGBO(58, 66, 86, 1.0)),
                             child: Row(
                               children: [
+
                                 Expanded(
                                   child: Image.network(
                                     "https://image.flaticon.com/icons/png/512/201/201555.png",

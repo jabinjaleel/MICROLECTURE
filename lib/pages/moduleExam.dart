@@ -90,6 +90,7 @@ class ModuleExamState extends State<ModuleExamStateful> {
             ],
           )),
               Slide(
+
                   backgroundColor: Colors.lightBlueAccent,
                   title: "Question 2",
                   centerWidget: Text(
