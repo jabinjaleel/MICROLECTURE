@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mbls/database/dataBaseConnection.dart';
 import 'package:mbls/widgets/textfield.dart';
 
 class ProfileDisplay extends StatelessWidget {
@@ -17,6 +18,7 @@ class ProfileDisplay extends StatelessWidget {
 }
 
 class ProfileDisplayStateful extends StatefulWidget {
+
   ProfileDisplayStateful({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -26,6 +28,10 @@ class ProfileDisplayStateful extends StatefulWidget {
 }
 
 class ProfileDisplayState extends State<ProfileDisplayStateful> {
+  void initState() {
+    StudentDB.sdb.viewStudent();
+  }
+
   var name = TextEditingController();
   var email = TextEditingController();
 
@@ -88,7 +94,7 @@ class ProfileDisplayState extends State<ProfileDisplayStateful> {
                   padding: EdgeInsets.only(top: 10),
                   child: Stack(children: [
                     Image.network(
-                        " https://i.pinimg.com/736x/0a/53/c3/0a53c3bbe2f56a1ddac34ea04a26be98.jpg"),
+                        "https://i.pinimg.com/736x/0a/53/c3/0a53c3bbe2f56a1ddac34ea04a26be98.jpg"),
                     Positioned(
                         top: 90,
                         left: 85,

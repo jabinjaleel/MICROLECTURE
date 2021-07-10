@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbls/database/dataBaseConnection.dart';
 import 'package:mbls/pages/homePage.dart';
 import 'package:mbls/pages/bottomNavigatipPage.dart';
 import 'package:mbls/pages/profile.dart';
@@ -31,6 +32,17 @@ class UserRegistrationStateful extends StatefulWidget {
 
 class UserRegistrationState extends State<UserRegistrationStateful> {
   DateTime currentDate = DateTime.now();
+  final name=TextEditingController();
+  final email=TextEditingController();
+  void submit()
+  {
+    String name1=name.text;
+    String email1=email.text;
+    print(name1);
+    StudentDetail sd=new StudentDetail(name1, email1);
+    StudentDB.sdb.insertDb(sd);
+
+  }
 
   Future<void> _selectDate(BuildContext context) async {
     final DateTime pickedDate = await showDatePicker(
@@ -100,7 +112,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               height: 60,
               width: 350,
-              child: TextField(
+              child: TextField(controller: name,
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'OpenSans',
@@ -131,7 +143,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               height: 60,
               width: 350,
-              child: TextField(
+              child: TextField(controller: email,
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'OpenSans',
@@ -302,7 +314,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)),
               color: Colors.white,
-              onPressed: () => {},
+              onPressed: () => {submit()},
             ),
           ],
         ),
