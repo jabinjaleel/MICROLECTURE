@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mbls/pages/chatBot.dart';
 import 'package:mbls/pages/notification.dart';
 import 'package:mbls/pages/profile.dart';
 
@@ -121,6 +122,10 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                   ),
                 ),),
                 Divider(),
+                GestureDetector(onTap: (){
+                  Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DialogFlow()));
+                },
+                  child:
                 ListTile(
                   leading: Icon(
                     Icons.email_outlined,
@@ -131,7 +136,7 @@ class DisplaySettingsState extends State<DisplaySettingsStateful> {
                     style: TextStyle(
                         fontWeight: FontWeight.bold, color: Colors.white),
                   ),
-                ),
+                ),),
                 Divider(),
                 ListTile(
                   leading: Icon(
