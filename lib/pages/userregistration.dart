@@ -34,12 +34,20 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
   DateTime currentDate = DateTime.now();
   final name=TextEditingController();
   final email=TextEditingController();
+  final pass=TextEditingController();
+  final dob=TextEditingController();
+  final city= TextEditingController();
+  final phone=TextEditingController();
   void submit()
   {
     String name1=name.text;
     String email1=email.text;
-    print(name1);
-    StudentDetail sd=new StudentDetail(name1, email1);
+    String pass1=pass.text;
+    String dob1=dob.text;
+    String city1=city.text;
+    String phone1=phone.text;
+
+    StudentDetail sd=new StudentDetail(name1, email1,pass1,city1,phone1);
     StudentDB.sdb.insertDb(sd);
 
   }
@@ -174,7 +182,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               height: 60,
               width: 350,
-              child: TextField(
+              child: TextField(controller: pass,
                 obscureText: true,
                 style: TextStyle(
                   color: Colors.white,
@@ -249,7 +257,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               height: 60,
               width: 350,
-              child: TextField(
+              child: TextField(controller: city,
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'OpenSans',
@@ -280,7 +288,7 @@ class UserRegistrationState extends State<UserRegistrationStateful> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               height: 60,
               width: 350,
-              child: TextField(
+              child: TextField(controller: phone,
                 style: TextStyle(
                   color: Colors.white,
                   fontFamily: 'OpenSans',

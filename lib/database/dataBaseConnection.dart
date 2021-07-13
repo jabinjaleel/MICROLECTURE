@@ -19,11 +19,11 @@ class StudentDB {
         onOpen: (db) {},
         onCreate: (Database db, int version) async
         {
-          await db.execute("create table student(name text,email text)");
+          await db.execute("create table student(name text,email text,pass text,city text,phone text)");
         });
   }
 
-  Future <List<StudentDetail>> viewStudent() async
+  Future<List<StudentDetail>> viewStudent() async
   {
     final db = await databaseFunction;
     List<Map> result = await db.query("student");
@@ -37,8 +37,8 @@ class StudentDB {
   insertDb(StudentDetail student) async
   {
     final db = await databaseFunction;
-    var result = db.rawInsert("insert into student(name,email) values(?,?)",
-        [student.name, student.email]);
+    var result = db.rawInsert("insert into student(name,email,pass,city,phone) values(?,?,?,?,?)",
+        [student.name, student.email,student.pass,student.city,student.phone]);
     return result;
   }
 
@@ -47,15 +47,18 @@ class StudentDB {
 class StudentDetail {
   final String name;
   final String email;
+  final String pass;
+  final String city;
+  final String phone;
 
-  StudentDetail( this.name, this.email);
+  StudentDetail( this.name, this.email,this.pass,this.city,this.phone);
 
   Map<String, dynamic> toMap() {
-    return {"name": name, "email": email};
+    return {"name": name, "email": email,"pass":pass,"city":city,"phone":phone};
   }
 
   factory StudentDetail.fromMap(Map<dynamic, dynamic> data)
   {
-    return StudentDetail(data['name'],data['email']);
+    return StudentDetail(data['name'],data['email'],data['pass'],data['city'],data['phone']);
   }
 }
