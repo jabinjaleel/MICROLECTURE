@@ -28,15 +28,64 @@ class DialogFlowStateful extends StatefulWidget {
 }
 
 class DialogFlowState extends State<DialogFlowStateful> {
-  String l="";
-  String k="";
+  String l,query1;
   final query = TextEditingController();
-void initState()
-{
-  dialog("light speed");
-}
-  Future dialog(String q) async {
+  List<Widget> wid = [];
+  List<Widget> wid1 = [];
 
+  Future<void> sent() async {
+    query1 = query.text;
+    await dialog(query1);
+    setState(() {
+      query1 = query.text;
+      this.wid.add(
+            Container(
+              margin: EdgeInsets.only(top: 5, right: 5),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+              child: Text(
+                query1,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontFamily: "TimesNewRoman",
+                ),
+              ),
+            ),
+          );
+      this.wid1.add(
+            Container(
+              margin: EdgeInsets.only(top: 5, left: 5),
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                  gradient: LinearGradient(
+                      begin: Alignment.bottomLeft,
+                      end: Alignment.topRight,
+                      colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+              child: Text(
+                l,
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15,
+                  fontFamily: "TimesNewRoman",
+                ),
+              ),
+            ),
+          );
+    });
+  }
+
+  Future dialog(String q) async {
     AuthGoogle authGoogle =
         await AuthGoogle(fileJson: "assets/dialogFlow.json").build();
     Dialogflow dialogflow =
@@ -44,44 +93,66 @@ void initState()
     AIResponse response = await dialogflow.detectIntent(q);
     setState(() {
       l = response.getMessage().toString();
+      print(l);
     });
-
-
-
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
-              ),
-              gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [Colors.blueAccent, Colors.lightBlueAccent])),
-          margin: EdgeInsets.only(
-            top: 100,
-            left: 10,
+        body: ListView(children: [
+          // Container(
+          //   padding: EdgeInsets.all(10),
+          //   decoration: BoxDecoration(
+          //       borderRadius: BorderRadius.all(
+          //         Radius.circular(15),
+          //       ),
+          //       gradient: LinearGradient(
+          //           begin: Alignment.bottomLeft,
+          //           end: Alignment.topRight,
+          //           colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+          //   margin: EdgeInsets.only(
+          //     top: 100,
+          //     left: 10,
+          //   ),
+          //   child: Text(
+          //     l,
+          //     style: TextStyle(
+          //         color: Colors.black,
+          //         fontSize: 15,
+          //         fontFamily: "TimesNewRoman",
+          //         fontWeight: FontWeight.bold),
+          //   ),
+          // ),
+
+          Column(
+              // mainAxisAlignment: MainAxisAlignment.end,
+              // crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Align(
+                    alignment: Alignment.topRight,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: this.wid,
+                    )),
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: this.wid1,
+                    )),
+              ])
+        ]),
+        floatingActionButton: Row(children: [SizedBox(width: 30,),
+          DisplayTextfield(
+            con: query,
+            i1: Icons.question_answer_outlined,
+            label: "Query",
           ),
-          child: Text(
-            l,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: 15,
-                fontFamily: "TimesNewRoman",
-                fontWeight: FontWeight.bold),
-          ),
-        ),
-        floatingActionButton: Row(children: [DisplayTextfield(
-          con: query,
-          i1: Icons.question_answer_outlined,
-          label: "Query",
-        ),IconButton(onPressed: (){setState(() {
-         dialog("What is programming language");
-        });}, icon: Icon(Icons.send))]));
+         Container(margin: EdgeInsets.only(bottom: 25),
+             child: IconButton(onPressed: () => {sent()}, icon: Icon(Icons.send)))
+        ]));
   }
 }
