@@ -38,6 +38,7 @@ class VideoClassState extends State<VideoClassStateful> {
   String l, query1;
   final query = TextEditingController();
   List<Widget> wid = [];
+
   Future<void> sent() async {
     query1 = query.text;
     await dialog(query1);
@@ -45,65 +46,65 @@ class VideoClassState extends State<VideoClassStateful> {
     setState(() {
       query1 = query.text;
       this.wid.add(Column(children: [
-        Align(alignment: Alignment.topRight,child:
-        Container(
-          margin: EdgeInsets.only(top: 5, right: 5),
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
+            Align(
+              alignment: Alignment.topRight,
+              child: Container(
+                margin: EdgeInsets.only(top: 5, right: 5),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                        colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+                child: Text(
+                  query1,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontFamily: "TimesNewRoman",
+                  ),
+                ),
               ),
-              gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [Colors.blueAccent, Colors.lightBlueAccent])),
-          child: Text(
-            query1,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              fontFamily: "TimesNewRoman",
             ),
-          ),
-        ),),
-        Align(alignment: Alignment.topLeft,child:
-        Container(
-          margin: EdgeInsets.only(top: 5, right: 5),
-          padding: EdgeInsets.all(10),
-          decoration: BoxDecoration(
-              borderRadius: BorderRadius.all(
-                Radius.circular(15),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Container(
+                margin: EdgeInsets.only(top: 5, right: 5),
+                padding: EdgeInsets.all(10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomLeft,
+                        end: Alignment.topRight,
+                        colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+                child: Text(
+                  l,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15,
+                    fontFamily: "TimesNewRoman",
+                  ),
+                ),
               ),
-              gradient: LinearGradient(
-                  begin: Alignment.bottomLeft,
-                  end: Alignment.topRight,
-                  colors: [Colors.blueAccent, Colors.lightBlueAccent])),
-          child: Text(
-            l,
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 15,
-              fontFamily: "TimesNewRoman",
-            ),
-          ),
-        ),)])
-      );
-
+            )
+          ]));
     });
   }
+
   Future dialog(String q) async {
     AuthGoogle authGoogle =
-    await AuthGoogle(fileJson: "assets/dialogFlow.json").build();
+        await AuthGoogle(fileJson: "assets/dialogFlow.json").build();
     Dialogflow dialogflow =
-    Dialogflow(authGoogle: authGoogle, language: Language.english);
+        Dialogflow(authGoogle: authGoogle, language: Language.english);
     AIResponse response = await dialogflow.detectIntent(q);
     setState(() {
       l = response.getMessage().toString();
-
-
-
     });
-
   }
 
   @override
@@ -465,19 +466,25 @@ class VideoClassState extends State<VideoClassStateful> {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            ListView(shrinkWrap: true,
-                              scrollDirection: Axis.vertical,
-                              children: this.wid
-
+                            ListView(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                children: [
+                                  Column(
+                                    children: this.wid,
+                                  )
+                                ]),
+                            SizedBox(
+                              height: 10,
                             ),
-                            SizedBox(height: 10,),
                             Align(
                                 alignment: Alignment.bottomLeft,
                                 child: Row(children: [
                                   Container(
                                     width: 330,
                                     height: 90,
-                                    child: TextField(controller: query,
+                                    child: TextField(
+                                      controller: query,
                                       decoration: InputDecoration(
                                         fillColor: Colors.white,
                                         filled: true,
@@ -506,7 +513,7 @@ class VideoClassState extends State<VideoClassStateful> {
                                             shape: BoxShape.circle,
                                             color: Colors.lightBlueAccent),
                                         child: IconButton(
-                                          onPressed: ()=>{sent()},
+                                          onPressed: () => {sent()},
                                           icon: Icon(
                                             Icons.send_outlined,
                                             color: Colors.white,
@@ -514,8 +521,7 @@ class VideoClassState extends State<VideoClassStateful> {
                                         ),
                                       )),
                                 ]))
-                          ])
-                  );
+                          ]));
                 });
           },
           child: Icon(Icons.chat_bubble)
