@@ -28,17 +28,21 @@ class DialogFlowStateful extends StatefulWidget {
 }
 
 class DialogFlowState extends State<DialogFlowStateful> {
-  String l,query1;
+  String l, query1;
   final query = TextEditingController();
   List<Widget> wid = [];
   List<Widget> wid1 = [];
 
+
+
   Future<void> sent() async {
     query1 = query.text;
     await dialog(query1);
+
     setState(() {
       query1 = query.text;
-      this.wid.add(
+      this.wid.add(Column(children: [
+        Align(alignment: Alignment.topRight,child:
             Container(
               margin: EdgeInsets.only(top: 5, right: 5),
               padding: EdgeInsets.all(10),
@@ -58,30 +62,51 @@ class DialogFlowState extends State<DialogFlowStateful> {
                   fontFamily: "TimesNewRoman",
                 ),
               ),
-            ),
-          );
-      this.wid1.add(
-            Container(
-              margin: EdgeInsets.only(top: 5, left: 5),
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
-                  ),
-                  gradient: LinearGradient(
-                      begin: Alignment.bottomLeft,
-                      end: Alignment.topRight,
-                      colors: [Colors.blueAccent, Colors.lightBlueAccent])),
-              child: Text(
-                l,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15,
-                  fontFamily: "TimesNewRoman",
-                ),
+            ),),
+        Align(alignment: Alignment.topLeft,child:
+        Container(
+          margin: EdgeInsets.only(top: 5, right: 5),
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
               ),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+          child: Text(
+            l,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontFamily: "TimesNewRoman",
             ),
+          ),
+        ),)])
           );
+      // this.wid1.add(
+      //       Container(
+      //         margin: EdgeInsets.only(top: 5, left: 5),
+      //         padding: EdgeInsets.all(10),
+      //         decoration: BoxDecoration(
+      //             borderRadius: BorderRadius.all(
+      //               Radius.circular(15),
+      //             ),
+      //             gradient: LinearGradient(
+      //                 begin: Alignment.bottomLeft,
+      //                 end: Alignment.topRight,
+      //                 colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+      //         child: Text(
+      //           l,
+      //           style: TextStyle(
+      //             color: Colors.black,
+      //             fontSize: 15,
+      //             fontFamily: "TimesNewRoman",
+      //           ),
+      //         ),
+      //       ),
+      //     );
     });
   }
 
@@ -93,66 +118,50 @@ class DialogFlowState extends State<DialogFlowStateful> {
     AIResponse response = await dialogflow.detectIntent(q);
     setState(() {
       l = response.getMessage().toString();
-      print(l);
+
+
+
     });
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: ListView(children: [
-          // Container(
-          //   padding: EdgeInsets.all(10),
-          //   decoration: BoxDecoration(
-          //       borderRadius: BorderRadius.all(
-          //         Radius.circular(15),
-          //       ),
-          //       gradient: LinearGradient(
-          //           begin: Alignment.bottomLeft,
-          //           end: Alignment.topRight,
-          //           colors: [Colors.blueAccent, Colors.lightBlueAccent])),
-          //   margin: EdgeInsets.only(
-          //     top: 100,
-          //     left: 10,
-          //   ),
-          //   child: Text(
-          //     l,
-          //     style: TextStyle(
-          //         color: Colors.black,
-          //         fontSize: 15,
-          //         fontFamily: "TimesNewRoman",
-          //         fontWeight: FontWeight.bold),
-          //   ),
-          // ),
-
-          Column(
-              // mainAxisAlignment: MainAxisAlignment.end,
-              // crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Align(
-                    alignment: Alignment.topRight,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: this.wid,
-                    )),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: this.wid1,
-                    )),
-              ])
-        ]),
-        floatingActionButton: Row(children: [SizedBox(width: 30,),
+        appBar: AppBar(
+          title: Text("CHATBOT"),
+        ),
+        body: ListView(children:
+          this.wid
+          // Column(children: [
+          //   Align(
+          //       alignment: Alignment.topRight,
+          //       child: Column(
+          //           mainAxisAlignment: MainAxisAlignment.end,
+          //           crossAxisAlignment: CrossAxisAlignment.end,
+          //           children: this.wid)),
+          //   Align(
+          //       alignment: Alignment.topLeft,
+          //       child: Column(
+          //         mainAxisAlignment: MainAxisAlignment.start,
+          //         crossAxisAlignment: CrossAxisAlignment.start,
+          //         children: this.wid1,
+          //       )),
+          // ])
+        ),
+        floatingActionButton: Row(children: [
+          SizedBox(
+            width: 30,
+          ),
           DisplayTextfield(
             con: query,
             i1: Icons.question_answer_outlined,
             label: "Query",
           ),
-         Container(margin: EdgeInsets.only(bottom: 25),
-             child: IconButton(onPressed: () => {sent()}, icon: Icon(Icons.send)))
+          Container(
+              margin: EdgeInsets.only(bottom: 25),
+              child:
+                  IconButton(onPressed: () => {sent()}, icon: Icon(Icons.send)))
         ]));
   }
 }
