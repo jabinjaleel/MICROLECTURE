@@ -6,6 +6,7 @@ import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
 import 'package:mbls/widgets/textfield.dart';
 import 'package:video_player/video_player.dart';
+import 'package:flutter_dialogflow/dialogflow_v2.dart';
 
 class VideoClass extends StatelessWidget {
   // This widget is the root of your application.
@@ -34,6 +35,76 @@ class VideoClassStateful extends StatefulWidget {
 class VideoClassState extends State<VideoClassStateful> {
   VideoPlayerController controller;
   Future<void> InitializeVideoPlayerfuture;
+  String l, query1;
+  final query = TextEditingController();
+  List<Widget> wid = [];
+  Future<void> sent() async {
+    query1 = query.text;
+    await dialog(query1);
+
+    setState(() {
+      query1 = query.text;
+      this.wid.add(Column(children: [
+        Align(alignment: Alignment.topRight,child:
+        Container(
+          margin: EdgeInsets.only(top: 5, right: 5),
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+          child: Text(
+            query1,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontFamily: "TimesNewRoman",
+            ),
+          ),
+        ),),
+        Align(alignment: Alignment.topLeft,child:
+        Container(
+          margin: EdgeInsets.only(top: 5, right: 5),
+          padding: EdgeInsets.all(10),
+          decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(
+                Radius.circular(15),
+              ),
+              gradient: LinearGradient(
+                  begin: Alignment.bottomLeft,
+                  end: Alignment.topRight,
+                  colors: [Colors.blueAccent, Colors.lightBlueAccent])),
+          child: Text(
+            l,
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontFamily: "TimesNewRoman",
+            ),
+          ),
+        ),)])
+      );
+
+    });
+  }
+  Future dialog(String q) async {
+    AuthGoogle authGoogle =
+    await AuthGoogle(fileJson: "assets/dialogFlow.json").build();
+    Dialogflow dialogflow =
+    Dialogflow(authGoogle: authGoogle, language: Language.english);
+    AIResponse response = await dialogflow.detectIntent(q);
+    setState(() {
+      l = response.getMessage().toString();
+
+
+
+    });
+
+  }
 
   @override
   void initState() {
@@ -394,47 +465,19 @@ class VideoClassState extends State<VideoClassStateful> {
                       child: Column(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
-                            Container(
-                              child: Center(
-                                child: Text(
-                                  "What is Velocity?",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              margin: EdgeInsets.only(bottom: 30, left: 140),
-                              width: 250,
-                              height: 40,
-                              decoration: BoxDecoration(
+                            ListView(shrinkWrap: true,
+                              scrollDirection: Axis.vertical,
+                              children: this.wid
 
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(15),
-                                  )),
                             ),
-                            Container(
-                              padding: EdgeInsets.only(left: 10),
-                              child: Center(
-                                child: Text(
-                                  "The velocity of an object is the rate of change of its position with respect to a frame of reference, and is a function of time. Velocity is equivalent to a specification of an object's speed and direction of motion.",
-                                  style: TextStyle(fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              margin: EdgeInsets.only(bottom: 20, right: 150),
-                              width: 280,
-                              height: 110,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(15),
-                                  )),
-                            ),
+                            SizedBox(height: 10,),
                             Align(
                                 alignment: Alignment.bottomLeft,
                                 child: Row(children: [
                                   Container(
                                     width: 330,
                                     height: 90,
-                                    child: TextField(
+                                    child: TextField(controller: query,
                                       decoration: InputDecoration(
                                         fillColor: Colors.white,
                                         filled: true,
@@ -463,7 +506,7 @@ class VideoClassState extends State<VideoClassStateful> {
                                             shape: BoxShape.circle,
                                             color: Colors.lightBlueAccent),
                                         child: IconButton(
-                                          onPressed: () {},
+                                          onPressed: ()=>{sent()},
                                           icon: Icon(
                                             Icons.send_outlined,
                                             color: Colors.white,
@@ -471,7 +514,8 @@ class VideoClassState extends State<VideoClassStateful> {
                                         ),
                                       )),
                                 ]))
-                          ]));
+                          ])
+                  );
                 });
           },
           child: Icon(Icons.chat_bubble)
