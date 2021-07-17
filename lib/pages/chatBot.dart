@@ -45,6 +45,13 @@ class DialogFlowState extends State<DialogFlowStateful> {
                 margin: EdgeInsets.only(top: 5, right: 5),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 6.0,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
@@ -65,9 +72,17 @@ class DialogFlowState extends State<DialogFlowStateful> {
             Align(
               alignment: Alignment.topLeft,
               child: Container(
-                margin: EdgeInsets.only(top: 5, right: 5),
+                width: 250,
+                margin: EdgeInsets.only(top: 5, left: 5),
                 padding: EdgeInsets.all(10),
                 decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black12,
+                        blurRadius: 6.0,
+                        offset: Offset(0, 2),
+                      ),
+                    ],
                     borderRadius: BorderRadius.all(
                       Radius.circular(15),
                     ),
@@ -86,29 +101,8 @@ class DialogFlowState extends State<DialogFlowStateful> {
               ),
             )
           ]));
-      // this.wid1.add(
-      //       Container(
-      //         margin: EdgeInsets.only(top: 5, left: 5),
-      //         padding: EdgeInsets.all(10),
-      //         decoration: BoxDecoration(
-      //             borderRadius: BorderRadius.all(
-      //               Radius.circular(15),
-      //             ),
-      //             gradient: LinearGradient(
-      //                 begin: Alignment.bottomLeft,
-      //                 end: Alignment.topRight,
-      //                 colors: [Colors.blueAccent, Colors.lightBlueAccent])),
-      //         child: Text(
-      //           l,
-      //           style: TextStyle(
-      //             color: Colors.black,
-      //             fontSize: 15,
-      //             fontFamily: "TimesNewRoman",
-      //           ),
-      //         ),
-      //       ),
-      //     );
     });
+    query.text = "";
   }
 
   Future dialog(String q) async {
@@ -129,37 +123,32 @@ class DialogFlowState extends State<DialogFlowStateful> {
           title: Text("CHATBOT"),
         ),
         body: ListView(children: [
-          Column(children: this.wid,)
-        ]
-            // Column(children: [
-            //   Align(
-            //       alignment: Alignment.topRight,
-            //       child: Column(
-            //           mainAxisAlignment: MainAxisAlignment.end,
-            //           crossAxisAlignment: CrossAxisAlignment.end,
-            //           children: this.wid)),
-            //   Align(
-            //       alignment: Alignment.topLeft,
-            //       child: Column(
-            //         mainAxisAlignment: MainAxisAlignment.start,
-            //         crossAxisAlignment: CrossAxisAlignment.start,
-            //         children: this.wid1,
-            //       )),
-            // ])
-            ),
+          Column(
+            children: this.wid,
+          )
+        ]),
         floatingActionButton: Row(children: [
           SizedBox(
-            width: 30,
+            width: 45,
           ),
           DisplayTextfield(
             con: query,
             i1: Icons.question_answer_outlined,
             label: "Query",
           ),
+          SizedBox(
+            width: 10,
+          ),
           Container(
-              margin: EdgeInsets.only(bottom: 25),
-              child:
-                  IconButton(onPressed: () => {sent()}, icon: Icon(Icons.send)))
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle, color: Colors.blueAccent),
+              margin: EdgeInsets.only(bottom: 30),
+              child: IconButton(
+                  onPressed: () => {sent()},
+                  icon: Icon(
+                    Icons.send,
+                    color: Colors.white,
+                  )))
         ]));
   }
 }
