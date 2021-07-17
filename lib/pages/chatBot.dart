@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import 'package:mbls/pages/settings.dart';
 import 'package:mbls/widgets/textfield.dart';
 
 class DialogFlow extends StatelessWidget {
@@ -35,6 +36,10 @@ class DialogFlowState extends State<DialogFlowStateful> {
 
   Future<void> sent() async {
     query1 = query.text;
+    if(query1=="exit")
+      {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisplaySettings()));
+      }
     await dialog(query1);
     setState(() {
       query1 = query.text;
