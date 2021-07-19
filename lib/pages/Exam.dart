@@ -30,6 +30,7 @@ class ExamStateful extends StatefulWidget {
 }
 
 class ExamState extends State<ExamStateful> {
+  bool val=true;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,6 +115,18 @@ class ExamState extends State<ExamStateful> {
                   margin: EdgeInsets.only(left: 10),
                 ),
               ]),
+              IconButton(onPressed: (){
+                setState(() {
+                  val=!val;
+                });
+
+              }, icon: Icon(Icons.circle)),
+                Stack(children: [
+                  Container(width: 100,height: 100,color: Colors.red,),
+                  if(val==false)
+                  Text("Hello there"),
+
+                ],)
             ],
           ),
         ));

@@ -33,11 +33,22 @@ class VideoClassStateful extends StatefulWidget {
 }
 
 class VideoClassState extends State<VideoClassStateful> {
+  bool flag = true;
   VideoPlayerController controller;
   Future<void> InitializeVideoPlayerfuture;
   String l, query1;
   final query = TextEditingController();
   List<Widget> wid = [];
+
+  void inline() {
+    setState(() {
+      int a = controller.value.position.inSeconds;
+      if(a==3)
+        {
+          flag=false;
+        }
+    });
+  }
 
   Future<void> sent() async {
     query1 = query.text;
@@ -110,10 +121,8 @@ class VideoClassState extends State<VideoClassStateful> {
   @override
   void initState() {
     controller = VideoPlayerController.asset("assets/anime.webm");
-    print(controller);
     InitializeVideoPlayerfuture = controller.initialize();
     controller.setLooping(true);
-
     super.initState();
   }
 
@@ -133,6 +142,14 @@ class VideoClassState extends State<VideoClassStateful> {
         ),
       ),
       body: Column(children: [
+      //   ValueListenableBuilder(
+      //   valueListenable: controller,
+      //   builder: (context,type, child) {
+      //     //Do Something with the value.
+      //     return Text(controller.value.position.inSeconds.toString());
+      //   },
+      // ),
+
         FutureBuilder(
           future: InitializeVideoPlayerfuture,
           builder: (context, snapshot) {
@@ -142,91 +159,94 @@ class VideoClassState extends State<VideoClassStateful> {
                   aspectRatio: controller.value.aspectRatio,
                   child: VideoPlayer(controller),
                 ),
-                // Positioned(
-                //     top: 20,
-                //     left: 5,
-                //     child: Container(
-                //       padding: EdgeInsets.only(top: 10),
-                //       decoration: BoxDecoration(
-                //           color: Colors.black12.withOpacity(0.2),
-                //           borderRadius: BorderRadius.all(Radius.circular(15))),
-                //       height: 200,
-                //       width: 400,
-                //       child: Column(
-                //         children: [
-                //           Text(
-                //             "What is the formula for Velocity?",
-                //             style: TextStyle(
-                //                 fontWeight: FontWeight.bold, fontSize: 16),
-                //           ),
-                //           SizedBox(
-                //             height: 20,
-                //           ),
-                //           Container(
-                //             child: Row(
-                //               children: [
-                //                 Radio(
-                //                   value: true,
-                //                   onChanged: (bool val) {
-                //                     val = false;
-                //                   },
-                //                 ),
-                //                 Text("Speed/Distance",
-                //                     style:
-                //                         TextStyle(fontWeight: FontWeight.bold)),
-                //                 SizedBox(
-                //                   width: 40,
-                //                 ),
-                //                 Radio(
-                //                   value: true,
-                //                   onChanged: (bool val) {
-                //                     val = false;
-                //                   },
-                //                 ),
-                //                 Text("Speed/Time",
-                //                     style:
-                //                         TextStyle(fontWeight: FontWeight.bold))
-                //               ],
-                //             ),
-                //           ),
-                //           Container(
-                //             child: Row(
-                //               children: [
-                //                 Radio(
-                //                   value: true,
-                //                   onChanged: (bool val) {
-                //                     val = false;
-                //                   },
-                //                 ),
-                //                 Text("Time/Distance",
-                //                     style:
-                //                         TextStyle(fontWeight: FontWeight.bold)),
-                //                 SizedBox(
-                //                   width: 40,
-                //                 ),
-                //                 Radio(
-                //                   value: true,
-                //                   onChanged: (bool val) {
-                //                     val = false;
-                //                   },
-                //                 ),
-                //                 Text(
-                //                   "Speed/Distance",
-                //                   style: TextStyle(fontWeight: FontWeight.bold),
-                //                 )
-                //               ],
-                //             ),
-                //           ),
-                //           Align(
-                //             alignment: Alignment.bottomRight,
-                //             child: OutlineButton(
-                //               onPressed: () {},
-                //               child: Text("Submit"),
-                //             ),
-                //           )
-                //         ],
-                //       ),
-                //     ))
+                if (flag == false)
+                  Positioned(
+                      top: 20,
+                      left: 5,
+                      child: Container(
+                        padding: EdgeInsets.only(top: 10),
+                        decoration: BoxDecoration(
+                            color: Colors.black12.withOpacity(0.2),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(15))),
+                        height: 200,
+                        width: 400,
+                        child: Column(
+                          children: [
+                            Text(
+                              "What is the formula for Velocity?",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 16),
+                            ),
+                            SizedBox(
+                              height: 20,
+                            ),
+                            Container(
+                              child: Row(
+                                children: [
+                                  Radio(
+                                    value: true,
+                                    onChanged: (bool val) {
+                                      val = false;
+                                    },
+                                  ),
+                                  Text("Speed/Distance",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  Radio(
+                                    value: true,
+                                    onChanged: (bool val) {
+                                      val = false;
+                                    },
+                                  ),
+                                  Text("Speed/Time",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold))
+                                ],
+                              ),
+                            ),
+                            Container(
+                              child: Row(
+                                children: [
+                                  Radio(
+                                    value: true,
+                                    onChanged: (bool val) {
+                                      val = false;
+                                    },
+                                  ),
+                                  Text("Time/Distance",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold)),
+                                  SizedBox(
+                                    width: 40,
+                                  ),
+                                  Radio(
+                                    value: true,
+                                    onChanged: (bool val) {
+                                      val = false;
+                                    },
+                                  ),
+                                  Text(
+                                    "Speed/Distance",
+                                    style:
+                                        TextStyle(fontWeight: FontWeight.bold),
+                                  )
+                                ],
+                              ),
+                            ),
+                            Align(
+                              alignment: Alignment.bottomRight,
+                              child: OutlineButton(
+                                onPressed: () {},
+                                child: Text("Submit"),
+                              ),
+                            )
+                          ],
+                        ),
+                      ))
               ]);
             } else {
               return Center(
@@ -254,15 +274,7 @@ class VideoClassState extends State<VideoClassStateful> {
                 child: Center(
                     child: IconButton(
                         color: Colors.white,
-                        onPressed: () {
-                          setState(() {
-                            if (controller.value.isPlaying) {
-                              controller.pause();
-                            } else {
-                              controller.play();
-                            }
-                          });
-                        },
+                        onPressed: () {},
                         icon: Icon(Icons.fast_forward_outlined)))),
             SizedBox(
               width: 10,
@@ -289,8 +301,10 @@ class VideoClassState extends State<VideoClassStateful> {
                           setState(() {
                             if (controller.value.isPlaying) {
                               controller.pause();
+                              flag = false;
                             } else {
                               controller.play();
+                              flag = true;
                             }
                           });
                         },
@@ -328,6 +342,10 @@ class VideoClassState extends State<VideoClassStateful> {
         SizedBox(
           height: 10,
         ),
+        // IconButton(onPressed: (){
+        //   print("hello");
+        //   print(flag);
+        // }, icon: Icon(Icons.play_arrow)),
         Container(
           padding: EdgeInsets.only(top: 20, left: 20),
           child: Column(
