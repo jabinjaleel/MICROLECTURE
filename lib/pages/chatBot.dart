@@ -36,10 +36,10 @@ class DialogFlowState extends State<DialogFlowStateful> {
 
   Future<void> sent() async {
     query1 = query.text;
-    if(query1=="exit")
-      {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context)=>DisplaySettings()));
-      }
+    if (query1 == "exit") {
+      Navigator.of(context)
+          .push(MaterialPageRoute(builder: (context) => DisplaySettings()));
+    }
     await dialog(query1);
     setState(() {
       query1 = query.text;
