@@ -28,8 +28,17 @@ class ProfileDisplayStateful extends StatefulWidget {
 }
 
 class ProfileDisplayState extends State<ProfileDisplayStateful> {
-  void initState() {
-    StudentDB.sdb.viewStudent();
+  initState() {
+  add();
+
+  }
+  Future<void> add()
+  async {
+    StudentDetail s= await StudentDB.sdb.viewaddress();
+  StudentDetail s1=StudentDetail(s.name, s.email, s.pass,"kollam", s.phone);
+   StudentDB.sdb.updateTable(s1);
+   s1=await StudentDB.sdb.viewaddress();
+   print(s1.city);
   }
 
   var name = TextEditingController();

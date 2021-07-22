@@ -1,6 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dialogflow/dialogflow_v2.dart';
+import 'package:mbls/database/dataBaseConnection.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/widgets/textfield.dart';
 
@@ -32,17 +35,30 @@ class DialogFlowState extends State<DialogFlowStateful> {
   String l, query1;
   final query = TextEditingController();
   List<Widget> wid = [];
-
+  List<Widget> wid1 = [];
 
   Future<void> sent() async {
     query1 = query.text;
-    if (query1 == "exit") {
-      Navigator.of(context)
-          .push(MaterialPageRoute(builder: (context) => DisplaySettings()));
-    }
+
     await dialog(query1);
+
     setState(() {
       query1 = query.text;
+      if (query1 == "yes") {
+       query1="exit";
+        while (query1 == "exit") {
+          l = "1.change address,2.exit";
+          query1 = query.text;
+          if (query1 == "1") {
+            // query1 = "exit";
+
+            print("Enter the choice");
+            query1 = stdin.readLineSync().toString();
+            print(query1);
+          }
+        }
+      }
+
       this.wid.add(Column(children: [
             Align(
               alignment: Alignment.topRight,
@@ -119,6 +135,12 @@ class DialogFlowState extends State<DialogFlowStateful> {
     setState(() {
       l = response.getMessage().toString();
     });
+
+    if (l == "your address") {
+      StudentDetail s = await StudentDB.sdb.viewaddress();
+      String addr = s.city.toString();
+      l = l + " is:" + addr + "Do you wat to edit address";
+    }
   }
 
   @override
