@@ -121,12 +121,7 @@ class ExamState extends State<ExamStateful> {
                 });
 
               }, icon: Icon(Icons.circle)),
-                Stack(children: [
-                  Container(width: 100,height: 100,color: Colors.red,),
-                  if(val==false)
-                  Text("Hello there"),
 
-                ],)
             ],
           ),
         ));

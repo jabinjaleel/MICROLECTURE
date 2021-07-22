@@ -32,7 +32,7 @@ class DialogFlowState extends State<DialogFlowStateful> {
   String l, query1;
   final query = TextEditingController();
   List<Widget> wid = [];
-  List<Widget> wid1 = [];
+
 
   Future<void> sent() async {
     query1 = query.text;
