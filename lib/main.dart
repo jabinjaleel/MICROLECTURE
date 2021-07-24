@@ -3,6 +3,7 @@ import 'package:mbls/main.dart';
 import 'package:mbls/pages/homePage.dart';
 import 'package:mbls/pages/bottomNavigatipPage.dart';
 import 'package:mbls/pages/profile.dart';
+import 'package:mbls/pages/sample.dart';
 import 'package:mbls/pages/settings.dart';
 import 'package:mbls/pages/subscribedCourses.dart';
 import 'package:mbls/pages/userregistration.dart';
@@ -161,11 +162,14 @@ class LoginPageState extends State<LoginPageStateful> {
                 alignment: Alignment.topRight,
                 child: Container(
                   margin: EdgeInsets.only(top: 10, right: 30),
-                  child: Text(
+                  child: TextButton(onPressed: (){
+                    Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Sample()));
+                  },
+                      child: Text(
                     "Forgot Password?",
                     style: TextStyle(
                         color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
+                  )),
                 )),
             SizedBox(
               height: 20,

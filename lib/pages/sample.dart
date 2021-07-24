@@ -1,10 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mbls/widgets/textfield.dart';
 
-
-
-
-class MyApp extends StatelessWidget {
+class Sample extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,13 +20,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: SampleStateful(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key ,this.title}) : super(key: key);
+class SampleStateful extends StatefulWidget {
+  SampleStateful({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -42,236 +40,61 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  SampleState createState() => SampleState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  var user = ["a", "b", "c", "d"];
-  String val = "wdcs";
-  double rating = 0;
+class SampleState extends State<SampleStateful> {
+  final query = TextEditingController();
+  var query1;
+  int ch = 0;
+  List<Widget> wid = [];
+  int response()
+  {
+    query1=  query.text;
+    int chc=int.parse(query1);
+    return chc;
+  }
+
+  Future<void> menu() async {
+    query1 = query.text;
+    ch = int.parse(query1);
+    print(ch);
+    if(ch==1) {
+      setState(() {
+        this.wid.add(Container(decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+            color: Colors.greenAccent),child: Column(children: [
+              Text("1.Select"),
+          Text("2.Select"),
+          Text("3.Exit")
+        ],),),);
+      });
+
+    }
+    print("Exited");
+  }
 
   @override
   @override
   Widget build(BuildContext context) {
-
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
-        appBar: AppBar(
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title),
-          actions: [
-            PopupMenuButton(
-                color: Colors.black,
-                onSelected: (value) {
-                  setState(() {
-                    val = value.toString();
-                    if (value == 1) {
-                      showModalBottomSheet(
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(25)),
-                          backgroundColor: Colors.black,
-                          context: context,
-                          builder: (context) {
-                            return Container(
-                              alignment: Alignment.topCenter,
-                              padding: EdgeInsets.only(left: 60, top: 25),
-                              // width: 200,
-                              height: 250,
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(10),
-                                color: Colors.white10,
-                              ),
-                              child: Column(children: [
-                                Row(children: [
-                                  Container(
-                                    child: Icon(
-                                      Icons.message,
-                                      color: Colors.blueAccent,
-                                    ),
-                                    width: 30,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.blueGrey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "Message",
-                                    style: TextStyle(
-                                        fontFamily: "MonoSpace",
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
-                                  ),
-                                  SizedBox(
-                                    width: 50,
-                                  ),
-                                  Container(
-                                    child: Icon(
-                                      Icons.whatshot,
-                                      color: Colors.greenAccent,
-                                    ),
-                                    width: 30,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.blueGrey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "WhatsApp",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: "MonoSpace",
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ]),
-                                SizedBox(
-                                  height: 40,
-                                ),
-                                Row(children: [
-                                  Container(
-                                    child: Icon(
-                                      Icons.bluetooth,
-                                      color: Colors.blueAccent,
-                                    ),
-                                    width: 30,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.blueGrey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "Bluetooth",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: "MonoSpace",
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                  SizedBox(
-                                    width: 35,
-                                  ),
-                                  Container(
-                                    child: Icon(
-                                      Icons.wifi,
-                                      color: Colors.white,
-                                    ),
-                                    width: 30,
-                                    height: 30,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(10),
-                                      color: Colors.blueGrey,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: 5,
-                                  ),
-                                  Text(
-                                    "WiFi",
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontFamily: "MonoSpace",
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ]),
-                                SizedBox(
-                                  height: 50,
-                                ),
-                                Container(
-                                    padding: EdgeInsets.only(left: 40),
-                                    child: Row(
-                                      crossAxisAlignment:
-                                      CrossAxisAlignment.center,
-                                      children: [
-                                        CupertinoButton(
-                                          child: Text("Cancel"),
-                                          onPressed: () => {},
-                                          color: Colors.redAccent,
-                                          borderRadius:
-                                          BorderRadius.circular(15),
-                                        )
-                                      ],
-                                    ))
-                              ]),
-                            );
-                          });
-                    }
-                  });
-                },
-                itemBuilder: (context) => [
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.share,
-                          color: Colors.blueAccent,
-                        ),
-                        Text(
-                          " Share",
-                          style: TextStyle(color: Colors.white),
-                        )
-                      ],
-                    ),
-                    value: 1,
-                  ),
-                  PopupMenuItem(
-                    child: Row(
-                      children: [
-                        Icon(
-                          Icons.cancel,
-                          color: Colors.redAccent,
-                        ),
-                        Text(" Cancel",
-                            style: TextStyle(color: Colors.white))
-                      ],
-                    ),
-                    value: 2,
-                  )
-                ]),
-          ],
+      appBar: AppBar(
+        // Here we take the value from the MyHomePage object that was created by
+        // the App.build method, and use it to set our appbar title.
+        title: Text(widget.title),
+      ),
+      body: Column(
+          children: this.wid
+      ),
+      floatingActionButton: Row(children: [
+        DisplayTextfield(
+          con: query,
         ),
-        body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: Column(
-            children: [
-              SizedBox(height: 90,),
-              Slider(
-                  divisions: 10,
-                  min: 0,
-                  max: 100,
-                  label: rating.toString(),
-                  value: rating,
-                  onChanged: (value) {
-                    setState(() {
-                      rating = value;
-                    });
-                  }),
-              SizedBox(
-                height: 80,
-              ),
-              Icon(
-                Icons.account_circle_rounded,
-                size: rating,
-              )
-            ],
-          ),
-          // This trailing comma makes auto-formatting nicer for build methods.
-        ));
+        IconButton(onPressed: () =>
+        {
+          menu()
+        }, icon: Icon(Icons.send))
+      ]),
+    );
   }
 }
