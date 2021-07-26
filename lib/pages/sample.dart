@@ -48,18 +48,15 @@ class SampleState extends State<SampleStateful> {
   var query1;
   int ch = 0;
   List<Widget> wid = [];
-  int response()
-  {
-    query1=  query.text;
+  Future<int> response()
+  async {
+    query1=  await query.text;
     int chc=int.parse(query1);
     return chc;
   }
 
   Future<void> menu() async {
-    query1 = query.text;
-    ch = int.parse(query1);
-    print(ch);
-    if(ch==1) {
+    while(ch!=3) {
       setState(() {
         this.wid.add(Container(decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(16)),
@@ -69,7 +66,7 @@ class SampleState extends State<SampleStateful> {
           Text("3.Exit")
         ],),),);
       });
-
+      ch= await response();
     }
     print("Exited");
   }
